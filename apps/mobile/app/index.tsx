@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { router } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
@@ -9,7 +11,12 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Button
+        variant="default"
+        onPress={() => router.navigate("/(tabs)/components")}
+      >
+        Go to components
+      </Button>
     </View>
   );
 }
