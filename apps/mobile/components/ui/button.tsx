@@ -1,8 +1,10 @@
-import { cn } from "@/lib/utils";
 import React from "react";
-import { Pressable, Text } from "react-native";
+import { Text, Pressable, ActivityIndicator, View } from "react-native";
+import { Href, router } from "expo-router";
+import { cn } from "@/lib/utils";
 
-interface ButtonProps {
+export interface ButtonProps {
+  children?: React.ReactNode;
   variant?:
     | "default"
     | "destructive"
@@ -11,58 +13,119 @@ interface ButtonProps {
     | "ghost"
     | "link";
   size?: "default" | "sm" | "lg" | "icon";
-  onPress?: () => void;
-  children: React.ReactNode;
-  className?: string;
   disabled?: boolean;
+  isLoading?: boolean;
+  onPress?: () => void;
+  href?: string;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  className?: string;
+  textClassName?: string;
 }
 
-export function Button({
+export const Button = ({
+  children,
   variant = "default",
   size = "default",
-  onPress,
-  children,
-  className,
   disabled = false,
-  ...props
-}: ButtonProps) {
+  isLoading = false,
+  onPress,
+  href,
+  leftIcon,
+  rightIcon,
+  className = "",
+  textClassName = "",
+}: ButtonProps) => {
+  // Base button styles
+  const baseButtonStyles = "items-center justify-center rounded-lg";
+
+  // Variant styles
+  const variantStyles = {
+    default: "bg-[#2973B2]",
+    destructive: "bg-[#D84040]",
+    outline: "border border-[#e2e8f0] bg-[#ffffff]",
+    secondary: "bg-[#e3dede]",
+    ghost: "bg-transparent",
+    link: "bg-transparent",
+  };
+
+  // Size styles
+  const sizeStyles = {
+    default: "h-10 px-4 py-2",
+    sm: "h-8 px-3 rounded-lg",
+    lg: "h-12 px-8 rounded-lg",
+    icon: "h-10 w-10",
+  };
+
+  // Text styles
+  const baseTextStyles = "font-medium";
+  const textVariantStyles = {
+    default: "text-white",
+    destructive: "text-white",
+    outline: "text-[#111111]",
+    secondary: "text-[#111111]",
+    ghost: "text-[#111111]",
+    link: "text-blue underline",
+  };
+  const textSizeStyles = {
+    default: "text-base",
+    sm: "text-sm",
+    lg: "text-lg",
+    icon: "text-base",
+  };
+
+  // Combine all button styles
+  const buttonStyles = cn(
+    baseButtonStyles,
+    variantStyles[variant],
+    sizeStyles[size],
+    disabled && "opacity-50",
+    className
+  );
+
+  const textStyles = cn(
+    baseTextStyles,
+    textVariantStyles[variant],
+    textSizeStyles[size],
+    textClassName
+  );
+
+  const handlePress = () => {
+    if (disabled || isLoading) return;
+
+    if (href) {
+      router.push(href as Href);
+    } else if (onPress) {
+      onPress();
+    }
+  };
+
   return (
     <Pressable
-      onPress={onPress}
-      disabled={disabled}
-      className={cn(
-        "flex items-center justify-center rounded-md",
-        // Variants
-        variant === "default" && "bg-blue-500",
-        variant === "destructive" && "bg-destructive",
-        variant === "outline" && "border border-input bg-transparent",
-        variant === "secondary" && "bg-secondary",
-        variant === "ghost" && "bg-transparent",
-        variant === "link" && "bg-transparent underline-offset-4",
-        // Sizes
-        size === "default" && "h-10 px-4 py-2",
-        size === "sm" && "h-8 px-3",
-        size === "lg" && "h-12 px-6",
-        size === "icon" && "h-10 w-10",
-        // Disabled
-        disabled && "opacity-50",
-        className
-      )}
-      {...props}
+      onPress={handlePress}
+      className={buttonStyles}
+      disabled={disabled || isLoading}
     >
-      <Text
-        className={cn(
-          "text-sm font-medium",
-          variant === "default" && "text-white",
-          variant === "destructive" && "text-destructive-foreground",
-          variant === "outline" && "text-foreground",
-          variant === "secondary" && "text-secondary-foreground",
-          variant === "ghost" && "text-foreground",
-          variant === "link" && "text-primary underline"
-        )}
-      >
-        {children}
-      </Text>
+      <View className="flex-row items-center gap-2 justify-center">
+        {isLoading ? (
+          <ActivityIndicator
+            size="small"
+            color={
+              variant === "outline" || variant === "ghost" || variant === "link"
+                ? "#000"
+                : "#fff"
+            }
+          />
+        ) : leftIcon ? (
+          <View>{leftIcon}</View>
+        ) : null}
+
+        {children && <Text className={textStyles}>{children}</Text>}
+
+        {rightIcon && !isLoading && <View>{rightIcon}</View>}
+      </View>
     </Pressable>
   );
-}
+};
+
+export default Button;
