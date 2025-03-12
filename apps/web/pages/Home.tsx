@@ -3,12 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Layers, Smartphone, Zap } from "lucide-react";
 import { Footer } from "@/components/app/footer";
 import { HeroCode } from "@/components/app/hero-code";
-import { Navbar } from "@/components/app/navbar";
 
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="flex flex-row justify-center py-24 md:py-32">

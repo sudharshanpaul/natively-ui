@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Getting Started",
+    "items": [
+      { "title": "Introduction", "href": "/docs" },
+      { "title": "Installation", "href": "/docs/getting-started/installation" },
+      { "title": "Usage", "href": "/docs/getting-started/usage" }
+    ]
+  },
+  {
+    "title": "Components",
+    "items": [
+      { "title": "Button", "href": "/docs/components/button" },
+      { "title": "Card", "href": "/docs/components/card" }
+    ]
+  }
+]
