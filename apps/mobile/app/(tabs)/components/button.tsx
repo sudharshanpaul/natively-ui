@@ -125,7 +125,7 @@ export default function ButtonDemo() {
 
       <Text className="text-lg font-semibold mb-2">Router Link</Text>
       <View className="mb-4">
-        <Button href="/other-page">Go to Other Page</Button>
+        <Button href="/components">Go to Home Page</Button>
       </View>
     </ScrollView>
   );

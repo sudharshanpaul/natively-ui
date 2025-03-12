@@ -19,8 +19,8 @@ export default function ComponentsIndex() {
       <View className="space-y-2">
         {components.map((component) => (
           <Link key={component.name} href={component.path} asChild>
-            <Pressable className="p-4 bg-gray-100 rounded-md">
-              <Text className="text-lg">{component.name}</Text>
+            <Pressable className="p-4 bg-slate-200 rounded-lg">
+              <Text className="text-lg text-center">{component.name}</Text>
             </Pressable>
           </Link>
         ))}

@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Home() {
@@ -8,12 +9,7 @@ export default function Home() {
         A beautiful, accessible React Native component library using NativeWind
       </p>
       <div className="flex gap-4">
-        <Link
-          href="/docs"
-          className="px-6 py-3 bg-black text-white rounded-md text-lg font-medium"
-        >
-          Get Started
-        </Link>
+        <Button>Get Started</Button>
         <Link
           href="/docs/components"
           className="px-6 py-3 border border-gray-200 rounded-md text-lg font-medium"
