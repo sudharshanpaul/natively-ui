@@ -8,8 +8,8 @@ export function DocsSidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="w-64 pr-8 flex-shrink-0">
-      <div className="sticky top-16 space-y-6">
+    <div className="w-[20%] h-[calc(100vh-4rem)] overflow-y-auto flex-shrink-0 border-r sticky top-[9%]">
+      <div className="p-6 space-y-6">
         {sidebarItems.map((section) => (
           <div key={section.title} className="space-y-2">
             <h4 className="font-medium text-sm text-gray-500">

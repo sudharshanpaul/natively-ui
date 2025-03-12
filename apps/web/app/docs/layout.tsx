@@ -6,14 +6,12 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="flex flex-col lg:flex-row">
-        <DocsSidebar />
-        <div className="flex flex-1 min-w-0">
-          <main className="flex-1 max-w-2xl py-4">
-            <div className="prose max-w-none">{children}</div>
-          </main>
-        </div>
+    <div className="flex">
+      <DocsSidebar />
+      <div className="flex-1 overflow-y-auto">
+        <main className="max-w-2xl py-4 px-6">
+          <div className="prose max-w-none">{children}</div>
+        </main>
       </div>
     </div>
   );
