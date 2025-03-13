@@ -21,12 +21,12 @@ export function Navbar() {
               Documentation
             </Link>
             <Link
-              href="/components"
+              href="/docs/components"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Components
             </Link>
-            <Link
+            {/* <Link
               href="/examples"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
@@ -37,7 +37,7 @@ export function Navbar() {
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Blog
-            </Link>
+            </Link> */}
           </nav>
         </div>
         <div className="flex items-center gap-2">
