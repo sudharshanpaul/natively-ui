@@ -1,0 +1,19 @@
+{
+  "components": [
+    {
+      "name": "button",
+      "description": "A button component with various styles and states",
+      "dependencies": ["expo-router"]
+    },
+    {
+      "name": "card",
+      "description": "A card component for displaying content",
+      "dependencies": []
+    },
+    {
+      "name": "alert-dialog",
+      "description": "A dialog component for important actions requiring confirmation",
+      "dependencies": []
+    }
+  ]
+}
