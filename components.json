@@ -19,6 +19,11 @@
       "name": "avatar",
       "description": "An image element with a fallback for representing the user.",
       "dependencies": []
+    },
+    {
+      "name": "badge",
+      "description": "Displays a simple and clean badge component.",
+      "dependencies": []
     }
   ]
 }

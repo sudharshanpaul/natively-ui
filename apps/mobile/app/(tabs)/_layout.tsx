@@ -13,15 +13,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="components/button"
-        options={{
-          title: "Components",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="cubes" size={24} color={color} />
-          ),
-        }}
-      />
     </Tabs>
   );
 }

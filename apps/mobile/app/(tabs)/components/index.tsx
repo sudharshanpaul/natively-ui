@@ -1,14 +1,17 @@
 import React from "react";
 import { View, Text, ScrollView, Pressable } from "react-native";
-import { Link } from "expo-router";
+import { Href, Link } from "expo-router";
 
 interface ComponentType {
   name: string;
-  path: any;
+  path: Href;
 }
 
 const components: ComponentType[] = [
-  { name: "Button", path: "/components/button" },
+  { name: "Button", path: "/pages/button-demo" },
+  { name: "Alert Dialog", path: "/pages/alert-demo" },
+  { name: "Avatar", path: "/pages/avatar-demo" },
+  { name: "Badge", path: "/pages/badge-demo" },
 ];
 
 export default function ComponentsIndex() {
@@ -16,7 +19,7 @@ export default function ComponentsIndex() {
     <ScrollView className="flex-1 p-4">
       <Text className="text-2xl font-bold mb-6">Components</Text>
 
-      <View className="space-y-2">
+      <View className="gap-4">
         {components.map((component) => (
           <Link key={component.name} href={component.path} asChild>
             <Pressable className="p-4 bg-slate-200 rounded-lg">
