@@ -11,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { CodeBlock } from "@/components/app/code-block";
 
 export default function ButtonDocPage() {
   // Component example code snippets
@@ -185,7 +186,7 @@ export const Button = ({
 export default Button;`;
 
   return (
-    <div className="container mx-auto py-5 max-w-5xl">
+    <div className="container mx-auto py-5">
       <h1 className="text-4xl font-bold mb-4">Button</h1>
       <p className="text-lg text-muted-foreground mb-8">
         A versatile button component with various styles and states.
@@ -220,16 +221,20 @@ export default Button;`;
       {/* Installation section */}
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Installation</h2>
-        <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-          <code>npx shadcn-ui@latest add button</code>
+        <pre className="p-4 rounded-md overflow-x-auto">
+          <CodeBlock filename="" language="cli" code="npx nativly add button" />
         </pre>
       </div>
 
       {/* Usage section */}
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Usage</h2>
-        <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-          <code>{basicUsageCode}</code>
+        <pre className=" p-4 rounded-md overflow-x-auto">
+          <CodeBlock
+            language="tsx"
+            filename="Button.tsx"
+            code={basicUsageCode}
+          />
         </pre>
       </div>
 
@@ -255,8 +260,13 @@ export default Button;`;
               <Button variant="ghost">Ghost</Button>
               <Button variant="link">Link</Button>
             </div>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>{variantsCode}</code>
+            <pre className="p-4 rounded-md overflow-x-auto">
+              {/* <code>{variantsCode}</code> */}
+              <CodeBlock
+                filename="Button.tsx"
+                code={variantsCode}
+                language="tsx"
+              />
             </pre>
           </TabsContent>
 
@@ -388,7 +398,7 @@ export default Button;`;
               <TableRow>
                 <TableCell>textClassName</TableCell>
                 <TableCell>string</TableCell>
-                <TableCell>""</TableCell>
+                <TableCell>&quot;</TableCell>
                 <TableCell>
                   Additional CSS classes for the button text
                 </TableCell>
@@ -402,7 +412,8 @@ export default Button;`;
       <div>
         <h2 className="text-2xl font-semibold mb-4">Implementation</h2>
         <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-          <code>{buttonImplementationCode}</code>
+          {/* <code>{buttonImplementationCode}</code> */}
+          <CodeBlock filename="Button.tsx" language="tsx" code={buttonImplementationCode} />
         </pre>
       </div>
     </div>

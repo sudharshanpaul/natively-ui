@@ -9,7 +9,7 @@ export default function DocsLayout({
     <div className="flex">
       <DocsSidebar />
       <div className="flex-1 overflow-y-auto">
-        <main className="max-w-2xl py-4 px-6">
+        <main className="py-4 px-6">
           <div className="prose max-w-none">{children}</div>
         </main>
       </div>
