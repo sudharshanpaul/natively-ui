@@ -14,6 +14,11 @@
       "name": "alert-dialog",
       "description": "A dialog component for important actions requiring confirmation",
       "dependencies": []
+    },
+    {
+      "name": "Avatar",
+      "description": "An image element with a fallback for representing the user.",
+      "dependencies": []
     }
   ]
 }

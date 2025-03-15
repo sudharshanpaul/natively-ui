@@ -11,7 +11,9 @@
     "title": "Components",
     "items": [
       { "title": "Button", "href": "/docs/components/button" },
-      { "title": "Card", "href": "/docs/components/card" }
+      { "title": "Card", "href": "/docs/components/card" },
+      { "title": "Alert Dialog", "href": "/docs/components/alert-dialog" },
+      { "title": "Avatar", "href": "/docs/components/avatar" }
     ]
   }
 ]
