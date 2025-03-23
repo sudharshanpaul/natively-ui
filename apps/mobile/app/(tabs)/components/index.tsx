@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, Text, ScrollView, Pressable, Image } from "react-native";
 import { Href, Link } from "expo-router";
 
 interface ComponentType {
@@ -12,6 +12,8 @@ const components: ComponentType[] = [
   { name: "Alert Dialog", path: "/pages/alert-demo" },
   { name: "Avatar", path: "/pages/avatar-demo" },
   { name: "Badge", path: "/pages/badge-demo" },
+  { name: "Card", path: "/pages/card-demo" },
+  { name: "Collapsible", path: "/pages/collapsible-demo" }
 ];
 
 export default function ComponentsIndex() {

@@ -41,7 +41,7 @@ export const Badge = ({
 
   // Size styles
   const sizeStyles = {
-    default: "px-3 py-1",
+    default: "px-2 py-1",
     sm: "px-2 py-1",
     lg: "px-3 py-2",
   };
