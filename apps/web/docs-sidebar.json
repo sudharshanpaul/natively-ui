@@ -16,7 +16,9 @@
       { "title": "Avatar", "href": "/docs/components/avatar" },
       { "title": "Badge", "href": "/docs/components/badge" },
       { "title": "Accordion", "href": "/docs/components/accordion" },
-      { "title": "Checkbox", "href": "/docs/components/checkbox" }
+      { "title": "Checkbox", "href": "/docs/components/checkbox" },
+      { "title": "Combobox", "href": "/docs/components/combobox" },
+      { "title": "Datepicker", "href": "/docs/components/datepicker" }
     ]
   }
 ]

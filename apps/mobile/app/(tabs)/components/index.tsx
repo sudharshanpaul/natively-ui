@@ -17,6 +17,7 @@ const components: ComponentType[] = [
   { name: "Accordion", path: "/pages/accordion-demo" },
   { name: "Checkbox", path: "/pages/checkbox-demo" },
   { name: "Combobox", path: "/pages/combobox-demo" },
+  { name: "Datepicker", path: "/pages/datepicker-demo" },
 ];
 
 export default function ComponentsIndex() {
