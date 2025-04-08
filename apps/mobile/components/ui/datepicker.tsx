@@ -296,17 +296,16 @@ export const DatePicker = ({
                   );
                 }
 
-                // Now TypeScript knows `day.date` is defined
                 return (
                   <Pressable
                     key={`day-${day.date.toISOString()}`}
                     style={{ width: calendarWidth / 7 }}
                     className={cn(
                       "h-10 items-center justify-center",
-                      day.isSelected && "bg-[#2973B2] rounded-full",
+                      day.isSelected && "bg-black rounded-full",
                       day.isToday &&
                         !day.isSelected &&
-                        "border border-[#2973B2] rounded-full"
+                        "border border-black rounded-full"
                     )}
                     onPress={() => {
                       if (!day.isDisabled) {
@@ -321,7 +320,7 @@ export const DatePicker = ({
                         day.isSelected && "text-white font-medium",
                         day.isToday &&
                           !day.isSelected &&
-                          "text-[#2973B2] font-medium",
+                          "text-black font-medium",
                         day.isDisabled && "text-[#d1d5db]"
                       )}
                     >

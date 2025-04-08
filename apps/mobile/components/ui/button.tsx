@@ -41,7 +41,7 @@ export const Button = ({
 
   // Variant styles
   const variantStyles = {
-    default: "bg-[#2973B2]",
+    default: "bg-black",
     destructive: "bg-[#D84040]",
     outline: "border border-[#e2e8f0] bg-[#ffffff]",
     secondary: "bg-[#e3dede]",
