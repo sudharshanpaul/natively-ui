@@ -18,7 +18,8 @@
       { "title": "Accordion", "href": "/docs/components/accordion" },
       { "title": "Checkbox", "href": "/docs/components/checkbox" },
       { "title": "Combobox", "href": "/docs/components/combobox" },
-      { "title": "Datepicker", "href": "/docs/components/datepicker" }
+      { "title": "Datepicker", "href": "/docs/components/datepicker" },
+      { "title": "Dialog", "href": "/docs/components/dialog" }
     ]
   }
 ]
