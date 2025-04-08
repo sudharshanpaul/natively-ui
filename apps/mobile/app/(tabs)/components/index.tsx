@@ -16,6 +16,7 @@ const components: ComponentType[] = [
   { name: "Collapsible", path: "/pages/collapsible-demo" },
   { name: "Accordion", path: "/pages/accordion-demo" },
   { name: "Checkbox", path: "/pages/checkbox-demo" },
+  { name: "Combobox", path: "/pages/combobox-demo" },
 ];
 
 export default function ComponentsIndex() {
