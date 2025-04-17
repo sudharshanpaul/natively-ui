@@ -1,6 +1,5 @@
-// app/screens/DrawerDemo.tsx
 import React, { useState } from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text } from "react-native";
 import { Drawer } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 
