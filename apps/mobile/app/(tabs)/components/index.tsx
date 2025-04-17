@@ -19,6 +19,7 @@ const components: ComponentType[] = [
   { name: "Combobox", path: "/pages/combobox-demo" },
   { name: "Datepicker", path: "/pages/datepicker-demo" },
   { name: "Dialog", path: "/pages/dialog-demo" },
+  { name: "Drawer", path: "/pages/drawer-demo" }
 ];
 
 export default function ComponentsIndex() {
