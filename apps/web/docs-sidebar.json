@@ -19,7 +19,8 @@
       { "title": "Checkbox", "href": "/docs/components/checkbox" },
       { "title": "Combobox", "href": "/docs/components/combobox" },
       { "title": "Datepicker", "href": "/docs/components/datepicker" },
-      { "title": "Dialog", "href": "/docs/components/dialog" }
+      { "title": "Dialog", "href": "/docs/components/dialog" },
+      { "title": "Dropdown Menu", "href": "/docs/components/dropdown-menu" }
     ]
   }
 ]
