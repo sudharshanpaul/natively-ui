@@ -1,29 +1,64 @@
 {
   "components": [
     {
-      "name": "button",
-      "description": "A button component with various styles and states",
-      "dependencies": ["expo-router"]
-    },
-    {
-      "name": "card",
-      "description": "A card component for displaying content",
-      "dependencies": []
+      "name": "accordion",
+      "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+      "dependencies": ["react-native-reanimated"]
     },
     {
       "name": "alert-dialog",
       "description": "A dialog component for important actions requiring confirmation",
-      "dependencies": []
+      "dependencies": ["react-native-reanimated"]
     },
     {
       "name": "avatar",
-      "description": "An image element with a fallback for representing the user.",
-      "dependencies": []
+      "description": "An image element with a fallback for representing the user",
+      "dependencies": ["expo-image"]
     },
     {
       "name": "badge",
-      "description": "Displays a simple and clean badge component.",
+      "description": "Displays a simple and clean badge component",
       "dependencies": []
+    },
+    {
+      "name": "button",
+      "description": "A button component with various styles and states",
+      "dependencies": ["expo-haptics"]
+    },
+    {
+      "name": "card",
+      "description": "A card component for displaying content in a contained way",
+      "dependencies": []
+    },
+    {
+      "name": "checkbox",
+      "description": "A control that allows the user to toggle between checked and not checked",
+      "dependencies": ["react-native-reanimated"]
+    },
+    {
+      "name": "collapsible",
+      "description": "A component that can be expanded or collapsed with smooth animation",
+      "dependencies": ["react-native-reanimated"]
+    },
+    {
+      "name": "combobox",
+      "description": "An input with a list of suggestions that allows users to select an item",
+      "dependencies": ["react-native-reanimated"]
+    },
+    {
+      "name": "datepicker",
+      "description": "A flexible date picker component for selecting dates with various display formats",
+      "dependencies": ["@react-native-community/datetimepicker", "date-fns"]
+    },
+    {
+      "name": "dialog",
+      "description": "A modal dialog component that provides a focused interaction with custom content",
+      "dependencies": ["react-native-reanimated"]
+    },
+    {
+      "name": "dropdown-menu",
+      "description": "A menu that appears below a trigger element containing selectable options",
+      "dependencies": ["react-native-reanimated"]
     }
   ]
 }
