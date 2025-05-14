@@ -12,410 +12,180 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { CodeBlock } from "@/components/app/code-block";
+import { Terminal } from 'lucide-react';
 
-export default function ButtonDocPage() {
-  // Component example code snippets
-  const basicUsageCode = `import { Button } from "@/components/ui/button";
-
-export default function ButtonDemo() {
+export default function ButtonPage() {
   return (
-    <div className="flex flex-col gap-4">
-      <Button>Default Button</Button>
-      <Button variant="destructive">Destructive Button</Button>
-      <Button variant="outline">Outline Button</Button>
-      <Button isLoading>Loading Button</Button>
-    </div>
-  );
-}`;
-
-  const variantsCode = `<Button variant="default">Default</Button>
-<Button variant="destructive">Destructive</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="link">Link</Button>`;
-
-  const sizesCode = `<Button size="default">Default</Button>
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>
-<Button size="icon">🔍</Button>`;
-
-  const withIconsCode = `import { Bell, ArrowRight } from "lucide-react-native";
-
-<Button leftIcon={<Bell size={16} />}>Notifications</Button>
-<Button rightIcon={<ArrowRight size={16} />}>Next</Button>
-<Button leftIcon={<Bell size={16} />} rightIcon={<ArrowRight size={16} />}>
-  All Notifications
-</Button>`;
-
-  const loadingStateCode = `<Button isLoading>Loading</Button>
-<Button isLoading variant="outline">Loading</Button>`;
-
-  const asLinksCode = `<Button href="/dashboard">Go to Dashboard</Button>`;
-
-  const buttonImplementationCode = `import React from "react";
-import { Text, Pressable, ActivityIndicator, View } from "react-native";
-import { Href, router } from "expo-router";
-import { cn } from "@/lib/utils";
-
-export interface ButtonProps {
-  children?: React.ReactNode;
-  variant?:
-    | "default"
-    | "destructive"
-    | "outline"
-    | "secondary"
-    | "ghost"
-    | "link";
-  size?: "default" | "sm" | "lg" | "icon";
-  disabled?: boolean;
-  isLoading?: boolean;
-  onPress?: () => void;
-  href?: string;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-  className?: string;
-  textClassName?: string;
-}
-
-export const Button = ({
-  children,
-  variant = "default",
-  size = "default",
-  disabled = false,
-  isLoading = false,
-  onPress,
-  href,
-  leftIcon,
-  rightIcon,
-  className = "",
-  textClassName = "",
-}: ButtonProps) => {
-  // Base button styles
-  const baseButtonStyles = "items-center justify-center rounded-lg";
-
-  // Variant styles
-  const variantStyles = {
-    default: "bg-[#2973B2]",
-    destructive: "bg-[#D84040]",
-    outline: "border border-[#e2e8f0] bg-[#ffffff]",
-    secondary: "bg-[#e3dede]",
-    ghost: "bg-transparent",
-    link: "bg-transparent",
-  };
-
-  // Size styles
-  const sizeStyles = {
-    default: "h-10 px-4 py-2",
-    sm: "h-8 px-3 rounded-lg",
-    lg: "h-12 px-8 rounded-lg",
-    icon: "h-10 w-10",
-  };
-
-  // Text styles
-  const baseTextStyles = "font-medium";
-  const textVariantStyles = {
-    default: "text-white",
-    destructive: "text-white",
-    outline: "text-[#111111]",
-    secondary: "text-[#111111]",
-    ghost: "text-[#111111]",
-    link: "text-blue underline",
-  };
-  const textSizeStyles = {
-    default: "text-base",
-    sm: "text-sm",
-    lg: "text-lg",
-    icon: "text-base",
-  };
-
-  // Combine all button styles
-  const buttonStyles = cn(
-    baseButtonStyles,
-    variantStyles[variant],
-    sizeStyles[size],
-    disabled && "opacity-50",
-    className
-  );
-
-  const textStyles = cn(
-    baseTextStyles,
-    textVariantStyles[variant],
-    textSizeStyles[size],
-    textClassName
-  );
-
-  const handlePress = () => {
-    if (disabled || isLoading) return;
-
-    if (href) {
-      router.push(href as Href);
-    } else if (onPress) {
-      onPress();
-    }
-  };
-
-  return (
-    <Pressable
-      onPress={handlePress}
-      className={buttonStyles}
-      disabled={disabled || isLoading}
-    >
-      <View className="flex-row items-center gap-2 justify-center">
-        {isLoading ? (
-          <ActivityIndicator
-            size="small"
-            color={
-              variant === "outline" || variant === "ghost" || variant === "link"
-                ? "#000"
-                : "#fff"
-            }
-          />
-        ) : leftIcon ? (
-          <View>{leftIcon}</View>
-        ) : null}
-
-        {children && <Text className={textStyles}>{children}</Text>}
-
-        {rightIcon && !isLoading && <View>{rightIcon}</View>}
-      </View>
-    </Pressable>
-  );
-};
-
-export default Button;`;
-
-  return (
-    <div className="container mx-auto py-5">
-      <h1 className="text-4xl font-bold mb-4">Button</h1>
-      <p className="text-lg text-muted-foreground mb-8">
-        A versatile button component with various styles and states.
-      </p>
-
-      {/* Example showcase */}
-      <div className="flex flex-wrap gap-4 p-6 border rounded-lg bg-muted/50 mb-8">
-        <Button>Default</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
-        <Button size="sm">Small</Button>
-        <Button size="lg">Large</Button>
-        {/* <Button isLoading>Loading</Button>
-        <Button leftIcon={<Bell size={16} />}>With Icon</Button> */}
+    <div className="space-y-8">
+      {/* Component Header */}
+      <div>
+        <h1 className="text-3xl font-bold mb-4">Button</h1>
+        <p className="text-lg text-muted-foreground">
+          A versatile button component with multiple variants and states.
+        </p>
       </div>
 
-      {/* Features section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Features</h2>
-        <ul className="list-disc pl-6 space-y-2">
+      {/* Installation */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Installation</h2>
+        <div className="bg-accent rounded-lg p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <Terminal className="w-4 h-4" />
+            <p className="font-mono text-sm">Install the component:</p>
+          </div>
+          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+            <code>natively install button</code>
+          </pre>
+        </div>
+      </section>
+
+      {/* Usage */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Usage</h2>
+        <div className="bg-card rounded-lg p-6 border space-y-4">
+          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+            <code>{`import { Button } from '@natively/button';
+
+export default function MyComponent() {
+  return (
+    <Button 
+      variant="primary" 
+      onPress={() => console.log('Button pressed')}
+    >
+      Click me
+    </Button>
+  );
+}`}</code>
+          </pre>
+        </div>
+      </section>
+
+      {/* Props */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Props</h2>
+        
+        <div className="border rounded-lg overflow-hidden">
+          <table className="w-full border-collapse">
+            <thead className="bg-accent">
+              <tr>
+                <th className="text-left p-3 border-b">Prop</th>
+                <th className="text-left p-3 border-b">Type</th>
+                <th className="text-left p-3 border-b">Default</th>
+                <th className="text-left p-3 border-b">Description</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              <tr>
+                <td className="p-3 font-mono text-sm">variant</td>
+                <td className="p-3 font-mono text-sm">'primary' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive'</td>
+                <td className="p-3 font-mono text-sm">'primary'</td>
+                <td className="p-3 text-sm">The visual style variant of the button.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">size</td>
+                <td className="p-3 font-mono text-sm">'sm' | 'md' | 'lg' | 'icon'</td>
+                <td className="p-3 font-mono text-sm">'md'</td>
+                <td className="p-3 text-sm">The size of the button.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">disabled</td>
+                <td className="p-3 font-mono text-sm">boolean</td>
+                <td className="p-3 font-mono text-sm">false</td>
+                <td className="p-3 text-sm">Whether the button is disabled.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">loading</td>
+                <td className="p-3 font-mono text-sm">boolean</td>
+                <td className="p-3 font-mono text-sm">false</td>
+                <td className="p-3 text-sm">Shows a loading spinner and disables the button.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">onPress</td>
+                <td className="p-3 font-mono text-sm">() => void</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">Function called when the button is pressed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Features</h2>
+        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
           <li>Multiple visual variants</li>
           <li>Different size options</li>
-          <li>Loading state with activity indicator</li>
-          <li>Support for icons on either side</li>
-          <li>Link functionality with Expo Router</li>
+          <li>Loading state with spinner</li>
+          <li>Disabled state styling</li>
+          <li>Icon support</li>
+          <li>Haptic feedback</li>
+          <li>Accessible touch targets</li>
+          <li>Customizable press animations</li>
         </ul>
-      </div>
+      </section>
 
-      {/* Installation section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Installation</h2>
-        <pre className="p-4 rounded-md overflow-x-auto">
-          <CodeBlock filename="" language="cli" code="npx nativly add button" />
-        </pre>
-      </div>
-
-      {/* Usage section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Usage</h2>
-        <pre className=" p-4 rounded-md overflow-x-auto">
-          <CodeBlock
-            language="tsx"
-            filename="Button.tsx"
-            code={basicUsageCode}
-          />
-        </pre>
-      </div>
-
-      {/* Examples section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Examples</h2>
-
-        <Tabs defaultValue="variants" className="mb-8">
-          <TabsList>
-            <TabsTrigger value="variants">Variants</TabsTrigger>
-            <TabsTrigger value="sizes">Sizes</TabsTrigger>
-            <TabsTrigger value="icons">With Icons</TabsTrigger>
-            <TabsTrigger value="loading">Loading</TabsTrigger>
-            <TabsTrigger value="links">As Links</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="variants">
-            <div className="flex flex-wrap gap-4 p-6 border rounded-lg mb-4">
-              <Button variant="default">Default</Button>
-              <Button variant="destructive">Destructive</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="ghost">Ghost</Button>
-              <Button variant="link">Link</Button>
+      {/* Examples */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Examples</h2>
+        
+        <div className="space-y-6">
+          {/* Variants Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Variants</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+                <code>{`<View style={{ gap: 8 }}>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="link">Link</Button>
+  <Button variant="destructive">Destructive</Button>
+</View>`}</code>
+              </pre>
             </div>
-            <pre className="p-4 rounded-md overflow-x-auto">
-              {/* <code>{variantsCode}</code> */}
-              <CodeBlock
-                filename="Button.tsx"
-                code={variantsCode}
-                language="tsx"
-              />
-            </pre>
-          </TabsContent>
+          </div>
 
-          <TabsContent value="sizes">
-            <div className="flex flex-wrap items-center gap-4 p-6 border rounded-lg mb-4">
-              <Button size="default">Default</Button>
-              <Button size="sm">Small</Button>
-              <Button size="lg">Large</Button>
-              <Button size="icon">🔍</Button>
+          {/* With Icon Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">With Icon</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+                <code>{`<Button>
+  <Icon name="plus" size={16} />
+  <Text>Add Item</Text>
+</Button>
+
+<Button size="icon">
+  <Icon name="settings" size={16} />
+</Button>`}</code>
+              </pre>
             </div>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>{sizesCode}</code>
-            </pre>
-          </TabsContent>
+          </div>
 
-          <TabsContent value="icons">
-            <div className="flex flex-wrap gap-4 p-6 border rounded-lg mb-4">
-              {/* <Button leftIcon={<Bell size={16} />}>Notifications</Button>
-              <Button rightIcon={<ArrowRight size={16} />}>Next</Button>
-              <Button leftIcon={<Bell size={16} />} rightIcon={<ArrowRight size={16} />}>
-                All Notifications
-              </Button> */}
+          {/* Loading State Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Loading State</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+                <code>{`const [isLoading, setIsLoading] = useState(false);
+
+<Button 
+  loading={isLoading} 
+  onPress={async () => {
+    setIsLoading(true);
+    await someAsyncOperation();
+    setIsLoading(false);
+  }}
+>
+  Save Changes
+</Button>`}</code>
+              </pre>
             </div>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>{withIconsCode}</code>
-            </pre>
-          </TabsContent>
-
-          <TabsContent value="loading">
-            <div className="flex flex-wrap gap-4 p-6 border rounded-lg mb-4">
-              {/* <Button isLoading>Loading</Button>
-              <Button isLoading variant="outline">Loading</Button> */}
-            </div>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>{loadingStateCode}</code>
-            </pre>
-          </TabsContent>
-
-          <TabsContent value="links">
-            <div className="flex flex-wrap gap-4 p-6 border rounded-lg mb-4">
-              {/* <Button href="/dashboard">Go to Dashboard</Button> */}
-            </div>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>{asLinksCode}</code>
-            </pre>
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      {/* Props section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Props</h2>
-        <div className="rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Prop</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Default</TableHead>
-                <TableHead>Description</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>children</TableCell>
-                <TableCell>React.ReactNode</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Button content</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>variant</TableCell>
-                <TableCell>
-                  "default" | "destructive" | "outline" | "secondary" | "ghost"
-                  | "link"
-                </TableCell>
-                <TableCell>"default"</TableCell>
-                <TableCell>Visual style variant</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>size</TableCell>
-                <TableCell>"default" | "sm" | "lg" | "icon"</TableCell>
-                <TableCell>"default"</TableCell>
-                <TableCell>Button size</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>disabled</TableCell>
-                <TableCell>boolean</TableCell>
-                <TableCell>false</TableCell>
-                <TableCell>Whether the button is disabled</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>isLoading</TableCell>
-                <TableCell>boolean</TableCell>
-                <TableCell>false</TableCell>
-                <TableCell>Shows loading spinner when true</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>onPress</TableCell>
-                <TableCell>() =`{">"}` void</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Function to call when button is pressed</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>href</TableCell>
-                <TableCell>string</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>URL to navigate to (uses Expo Router)</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>leftIcon</TableCell>
-                <TableCell>React.ReactNode</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Icon to display before button text</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>rightIcon</TableCell>
-                <TableCell>React.ReactNode</TableCell>
-                <TableCell>-</TableCell>
-                <TableCell>Icon to display after button text</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>className</TableCell>
-                <TableCell>string</TableCell>
-                <TableCell>""</TableCell>
-                <TableCell>
-                  Additional CSS classes for the button container
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>textClassName</TableCell>
-                <TableCell>string</TableCell>
-                <TableCell>&quot;</TableCell>
-                <TableCell>
-                  Additional CSS classes for the button text
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+          </div>
         </div>
-      </div>
-
-      {/* Implementation section */}
-      <div>
-        <h2 className="text-2xl font-semibold mb-4">Implementation</h2>
-        <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-          {/* <code>{buttonImplementationCode}</code> */}
-          <CodeBlock filename="Button.tsx" language="tsx" code={buttonImplementationCode} />
-        </pre>
-      </div>
+      </section>
     </div>
   );
 }
