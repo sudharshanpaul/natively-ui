@@ -1,14 +1,16 @@
 import React from "react";
-import { Terminal } from 'lucide-react';
+import { CodeBlock } from "@/components/app/code-block";
+import { Terminal } from "lucide-react";
 
 export default function DatePickerPage() {
   return (
     <div className="space-y-8">
       {/* Component Header */}
       <div>
-        <h1 className="text-3xl font-bold mb-4">Datepicker</h1>
+        <h1 className="text-3xl font-bold mb-4">Date Picker</h1>
         <p className="text-lg text-muted-foreground">
-          A flexible date picker component for selecting dates with various display formats and configurations.
+          A flexible date picker component with calendar popup and various
+          configuration options.
         </p>
       </div>
 
@@ -21,7 +23,7 @@ export default function DatePickerPage() {
             <p className="font-mono text-sm">Install the component:</p>
           </div>
           <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>natively install datepicker</code>
+            <code>npx natively-cli add datepicker</code>
           </pre>
         </div>
       </section>
@@ -29,29 +31,32 @@ export default function DatePickerPage() {
       {/* Usage */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
-        <div className="bg-card rounded-lg p-6 border space-y-4">
-          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>{`import { DatePicker } from '@natively/datepicker';
+        <div className="bg-card rounded-lg space-y-4">
+          <CodeBlock
+            language="jsx"
+            filename="DatePickerDemo.jsx"
+            highlightLines={[5]}
+            code={`import { DatePicker } from '@natively-ui/datepicker';
 
 export default function MyComponent() {
-  const [date, setDate] = React.useState(new Date());
-
+  const [selectedDate, setSelectedDate] = useState();
+  
   return (
-    <DatePicker
-      value={date}
-      onChange={setDate}
-      format="MM/dd/yyyy"
+    <DatePicker 
+      value={selectedDate}
+      onValueChange={setSelectedDate}
+      placeholder="Select a date"
     />
   );
-}`}</code>
-          </pre>
+}`}
+          />
         </div>
       </section>
 
       {/* Props */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Props</h2>
-        
+
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
             <thead className="bg-slate-900">
@@ -66,38 +71,88 @@ export default function MyComponent() {
               <tr>
                 <td className="p-3 font-mono text-sm">value</td>
                 <td className="p-3 font-mono text-sm">Date</td>
-                <td className="p-3 font-mono text-sm">new Date()</td>
-                <td className="p-3 text-sm">The currently selected date.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-mono text-sm">onChange</td>
-                <td className="p-3 font-mono text-sm">(date: Date) =&gt; void</td>
                 <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">Callback when the selected date changes.</td>
+                <td className="p-3 text-sm">
+                  Controlled value of the date picker.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm">format</td>
-                <td className="p-3 font-mono text-sm">string</td>
-                <td className="p-3 font-mono text-sm">'MM/dd/yyyy'</td>
-                <td className="p-3 text-sm">The format string for displaying the date.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-mono text-sm">minDate</td>
+                <td className="p-3 font-mono text-sm">defaultValue</td>
                 <td className="p-3 font-mono text-sm">Date</td>
                 <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">The minimum selectable date.</td>
+                <td className="p-3 text-sm">
+                  Default value for uncontrolled usage.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm">maxDate</td>
-                <td className="p-3 font-mono text-sm">Date</td>
+                <td className="p-3 font-mono text-sm">onValueChange</td>
+                <td className="p-3 font-mono text-sm">
+                  (date: Date | undefined) =&gt; void
+                </td>
                 <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">The maximum selectable date.</td>
+                <td className="p-3 text-sm">
+                  Function called when the selected date changes.
+                </td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">disabled</td>
                 <td className="p-3 font-mono text-sm">boolean</td>
                 <td className="p-3 font-mono text-sm">false</td>
-                <td className="p-3 text-sm">Whether the date picker is disabled.</td>
+                <td className="p-3 text-sm">
+                  Whether the date picker is disabled.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">placeholder</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">'Select date'</td>
+                <td className="p-3 text-sm">
+                  Placeholder text when no date is selected.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">className</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the date picker container.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">buttonClassName</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the trigger button.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">calendarClassName</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the calendar popup.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">disabledDates</td>
+                <td className="p-3 font-mono text-sm">Date[]</td>
+                <td className="p-3 font-mono text-sm">[]</td>
+                <td className="p-3 text-sm">
+                  Array of dates that should be disabled for selection.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">minDate</td>
+                <td className="p-3 font-mono text-sm">Date</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">Minimum selectable date.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">maxDate</td>
+                <td className="p-3 font-mono text-sm">Date</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">Maximum selectable date.</td>
               </tr>
             </tbody>
           </table>
@@ -108,69 +163,138 @@ export default function MyComponent() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Features</h2>
         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>Customizable date format</li>
-          <li>Min/max date constraints</li>
-          <li>Month and year navigation</li>
-          <li>Localization support</li>
-          <li>Custom date validation</li>
-          <li>Keyboard navigation</li>
-          <li>Accessible calendar view</li>
-          <li>Native date picker fallback on mobile</li>
+          <li>Controlled and uncontrolled component patterns</li>
+          <li>Calendar popup with month/year navigation</li>
+          <li>Today's date highlighting</li>
+          <li>Disabled dates support</li>
+          <li>Min/max date range restrictions</li>
+          <li>Customizable styling with className props</li>
+          <li>Responsive calendar sizing</li>
+          <li>Accessibility support with proper labels</li>
+          <li>Built with React Native and Expo Vector Icons</li>
         </ul>
       </section>
 
       {/* Examples */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Examples</h2>
-        
+
         <div className="space-y-6">
           {/* Basic Example */}
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Basic Usage</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`const [date, setDate] = React.useState(new Date());
+              <CodeBlock
+                language="jsx"
+                filename="DatePickerDemo.jsx"
+                code={`const [selectedDate, setSelectedDate] = useState();
 
-<DatePicker
-  value={date}
-  onChange={setDate}
-  format="MM/dd/yyyy"
-/>`}</code>
-              </pre>
+<DatePicker 
+  value={selectedDate}
+  onValueChange={setSelectedDate}
+  placeholder="Choose a date"
+/>`}
+              />
             </div>
           </div>
 
-          {/* With Min/Max Dates */}
+          {/* Uncontrolled Example */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold">With Min/Max Dates</h3>
+            <h3 className="text-xl font-semibold">Uncontrolled</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`const minDate = new Date('2024-01-01');
-const maxDate = new Date('2024-12-31');
-
-<DatePicker
-  value={date}
-  onChange={setDate}
-  minDate={minDate}
-  maxDate={maxDate}
-  format="MM/dd/yyyy"
-/>`}</code>
-              </pre>
+              <CodeBlock
+                language="jsx"
+                filename="DatePickerDemo.jsx"
+                code={`<DatePicker 
+  defaultValue={new Date()}
+  onValueChange={(date) => console.log('Selected:', date)}
+  placeholder="Select date"
+/>`}
+              />
             </div>
           </div>
 
-          {/* Custom Format */}
+          {/* Date Range Restrictions */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold">Custom Format</h3>
+            <h3 className="text-xl font-semibold">Date Range Restrictions</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`<DatePicker
-  value={date}
-  onChange={setDate}
-  format="MMMM dd, yyyy"
-  placeholder="Select a date"
-/>`}</code>
-              </pre>
+              <CodeBlock
+                language="jsx"
+                filename="DatePickerDemo.jsx"
+                code={`const today = new Date();
+const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+
+<DatePicker 
+  value={selectedDate}
+  onValueChange={setSelectedDate}
+  minDate={today}
+  maxDate={nextMonth}
+  placeholder="Select date within range"
+/>`}
+              />
+            </div>
+          </div>
+
+          {/* Disabled Dates Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Disabled Dates</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DatePickerDemo.jsx"
+                code={`const today = new Date();
+const tomorrow = new Date(today);
+tomorrow.setDate(today.getDate() + 1);
+
+const disabledDates = [
+  today,
+  tomorrow,
+  new Date(2024, 11, 25), // Christmas
+];
+
+<DatePicker 
+  value={selectedDate}
+  onValueChange={setSelectedDate}
+  disabledDates={disabledDates}
+  placeholder="Select available date"
+/>`}
+              />
+            </div>
+          </div>
+
+          {/* Custom Styling Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Custom Styling</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DatePickerDemo.jsx"
+                code={`<DatePicker 
+  value={selectedDate}
+  onValueChange={setSelectedDate}
+  className="mb-4"
+  buttonClassName="border-blue-500 bg-blue-50"
+  calendarClassName="border-2 border-blue-200"
+  placeholder="Custom styled picker"
+/>`}
+              />
+            </div>
+          </div>
+
+          {/* Disabled State Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Disabled State</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DatePickerDemo.jsx"
+                code={`<DatePicker 
+  value={selectedDate}
+  onValueChange={setSelectedDate}
+  disabled={true}
+  placeholder="Disabled date picker"
+/>`}
+              />
             </div>
           </div>
         </div>

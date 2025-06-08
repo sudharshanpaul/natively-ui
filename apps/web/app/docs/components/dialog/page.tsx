@@ -1,111 +1,199 @@
 import React from "react";
-import { Terminal } from 'lucide-react';
+import { CodeBlock } from "@/components/app/code-block";
+import { Terminal } from "lucide-react";
 
 export default function DialogPage() {
   return (
-    <div className="text-gray-100 space-y-8 min-h-screen">
+    <div className="space-y-8">
       {/* Component Header */}
       <div>
-        <h1 className="text-3xl font-bold mb-4 text-white">Dialog</h1>
-        <p className="text-lg text-gray-400">
-          A modal dialog component that provides a focused interaction with custom content while temporarily blocking interactions with the rest of the application.
+        <h1 className="text-3xl font-bold mb-4">Dialog</h1>
+        <p className="text-lg text-muted-foreground">
+          A modal dialog component for displaying content in an overlay with
+          customizable header, content, and footer sections.
         </p>
       </div>
 
       {/* Installation */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-white">Installation</h2>
-        <div className="bg-gray-900 rounded-lg p-4">
+        <h2 className="text-2xl font-bold">Installation</h2>
+        <div className="bg-slate-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
-            <Terminal className="w-4 h-4 text-gray-300" />
-            <p className="font-mono text-sm text-gray-300">Install the component:</p>
+            <Terminal className="w-4 h-4" />
+            <p className="font-mono text-sm">Install the component:</p>
           </div>
-          <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-            <code>natively install dialog</code>
+          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
+            <code>npx natively-cli add dialog</code>
           </pre>
         </div>
       </section>
 
       {/* Usage */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-white">Usage</h2>
-        <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
-          <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-            <code>{`import { Dialog } from '@natively/dialog';
+        <h2 className="text-2xl font-bold">Usage</h2>
+        <div className="bg-card rounded-lg space-y-4">
+          <CodeBlock
+            language="jsx"
+            filename="DialogDemo.jsx"
+            highlightLines={[7, 8, 9]}
+            code={`import { Dialog, AlertDialog } from '@natively-ui/dialog';
 
 export default function MyComponent() {
-  const [isOpen, setIsOpen] = React.useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
-    <>
-      <Button onPress={() => setIsOpen(true)}>
-        Open Dialog
-      </Button>
-
-      <Dialog 
-        isOpen={isOpen} 
-        onClose={() => setIsOpen(false)}
-        title="Dialog Title"
-      >
-        <Text>Dialog content goes here</Text>
-      </Dialog>
-    </>
+    <Dialog 
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      title="Dialog Title"
+      description="This is a dialog description."
+    >
+      <Text>Dialog content goes here</Text>
+    </Dialog>
   );
-}`}</code>
-          </pre>
+}`}
+          />
         </div>
       </section>
 
-      {/* Props */}
+      {/* Props - Dialog */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-white">Props</h2>
-        
-        <div className="border border-gray-800 rounded-lg overflow-hidden">
+        <h2 className="text-2xl font-bold">Dialog Props</h2>
+
+        <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
-            <thead className="bg-gray-800">
+            <thead className="bg-slate-900">
               <tr>
-                <th className="text-left p-3 border-b border-gray-700 text-gray-300">Prop</th>
-                <th className="text-left p-3 border-b border-gray-700 text-gray-300">Type</th>
-                <th className="text-left p-3 border-b border-gray-700 text-gray-300">Default</th>
-                <th className="text-left p-3 border-b border-gray-700 text-gray-300">Description</th>
+                <th className="text-left p-3 border-b">Prop</th>
+                <th className="text-left p-3 border-b">Type</th>
+                <th className="text-left p-3 border-b">Default</th>
+                <th className="text-left p-3 border-b">Description</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-800">
+            <tbody className="divide-y">
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">isOpen</td>
-                <td className="p-3 font-mono text-sm text-gray-300">boolean</td>
-                <td className="p-3 font-mono text-sm text-gray-300">false</td>
-                <td className="p-3 text-sm text-gray-400">Controls the visibility of the dialog.</td>
+                <td className="p-3 font-mono text-sm">isOpen</td>
+                <td className="p-3 font-mono text-sm">boolean</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Controls whether the dialog is visible.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">onClose</td>
-                <td className="p-3 font-mono text-sm text-gray-300">() =&gt; void</td>
-                <td className="p-3 font-mono text-sm text-gray-300">-</td>
-                <td className="p-3 text-sm text-gray-400">Callback when the dialog is closed.</td>
+                <td className="p-3 font-mono text-sm">onClose</td>
+                <td className="p-3 font-mono text-sm">() =&gt; void</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Function called when the dialog should be closed.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">title</td>
-                <td className="p-3 font-mono text-sm text-gray-300">string</td>
-                <td className="p-3 font-mono text-sm text-gray-300">-</td>
-                <td className="p-3 text-sm text-gray-400">The title of the dialog.</td>
+                <td className="p-3 font-mono text-sm">title</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Optional title displayed in the dialog header.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">children</td>
-                <td className="p-3 font-mono text-sm text-gray-300">ReactNode</td>
-                <td className="p-3 font-mono text-sm text-gray-300">-</td>
-                <td className="p-3 text-sm text-gray-400">The content of the dialog.</td>
+                <td className="p-3 font-mono text-sm">description</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Optional description text displayed below the title.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">overlayClose</td>
-                <td className="p-3 font-mono text-sm text-gray-300">boolean</td>
-                <td className="p-3 font-mono text-sm text-gray-300">true</td>
-                <td className="p-3 text-sm text-gray-400">Whether clicking the overlay closes the dialog.</td>
+                <td className="p-3 font-mono text-sm">children</td>
+                <td className="p-3 font-mono text-sm">React.ReactNode</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Content to display in the dialog body.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">closeOnEscape</td>
-                <td className="p-3 font-mono text-sm text-gray-300">boolean</td>
-                <td className="p-3 font-mono text-sm text-gray-300">true</td>
-                <td className="p-3 text-sm text-gray-400">Whether pressing escape closes the dialog.</td>
+                <td className="p-3 font-mono text-sm">footer</td>
+                <td className="p-3 font-mono text-sm">React.ReactNode</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Custom footer content, typically action buttons.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">className</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the dialog container.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">contentClassName</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the dialog content area.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">overlayClassName</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the dialog overlay.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Props - AlertDialog */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">AlertDialog Props</h2>
+        <p className="text-muted-foreground">
+          AlertDialog extends Dialog with additional props for common
+          confirmation dialogs.
+        </p>
+
+        <div className="border rounded-lg overflow-hidden">
+          <table className="w-full border-collapse">
+            <thead className="bg-slate-900">
+              <tr>
+                <th className="text-left p-3 border-b">Prop</th>
+                <th className="text-left p-3 border-b">Type</th>
+                <th className="text-left p-3 border-b">Default</th>
+                <th className="text-left p-3 border-b">Description</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              <tr>
+                <td className="p-3 font-mono text-sm">cancelText</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">'Cancel'</td>
+                <td className="p-3 text-sm">Text for the cancel button.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">confirmText</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">'OK'</td>
+                <td className="p-3 text-sm">Text for the confirm button.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">onConfirm</td>
+                <td className="p-3 font-mono text-sm">() =&gt; void</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Function called when the confirm button is pressed.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">danger</td>
+                <td className="p-3 font-mono text-sm">boolean</td>
+                <td className="p-3 font-mono text-sm">false</td>
+                <td className="p-3 text-sm">
+                  Whether to style the confirm button as destructive.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -114,89 +202,225 @@ export default function MyComponent() {
 
       {/* Features */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-white">Features</h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-400 pl-2">
-          <li>Modal overlay with customizable backdrop</li>
-          <li>Focus trap within dialog</li>
-          <li>Keyboard navigation and escape key handling</li>
-          <li>Customizable animations</li>
-          <li>Accessible ARIA attributes</li>
-          <li>Scroll lock on body when open</li>
-          <li>Responsive design</li>
-          <li>Custom close triggers</li>
+        <h2 className="text-2xl font-bold">Features</h2>
+        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Modal overlay with backdrop tap to close</li>
+          <li>Responsive sizing with maximum width constraints</li>
+          <li>Optional header with title and description</li>
+          <li>Flexible content area for custom components</li>
+          <li>Customizable footer with action buttons</li>
+          <li>AlertDialog variant for common confirmation dialogs</li>
+          <li>Close button in header for better UX</li>
+          <li>Fade animation for smooth transitions</li>
+          <li>Customizable styling with className props</li>
+          <li>Built with React Native Modal and Expo Vector Icons</li>
         </ul>
       </section>
 
       {/* Examples */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-white">Examples</h2>
-        
+        <h2 className="text-2xl font-bold">Examples</h2>
+
         <div className="space-y-6">
-          {/* Basic Example */}
+          {/* Basic Dialog Example */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-white">Basic Usage</h3>
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
-              <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-                <code>{`const [isOpen, setIsOpen] = React.useState(false);
+            <h3 className="text-xl font-semibold">Basic Dialog</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DialogDemo.jsx"
+                code={`const [isOpen, setIsOpen] = useState(false);
+
+<View>
+  <Button onPress={() => setIsOpen(true)}>
+    Open Dialog
+  </Button>
+  
+  <Dialog
+    isOpen={isOpen}
+    onClose={() => setIsOpen(false)}
+    title="Basic Dialog"
+    description="This is a simple dialog with a title and description."
+  >
+    <Text>This is the dialog content area.</Text>
+  </Dialog>
+</View>`}
+              />
+            </div>
+          </div>
+
+          {/* Dialog with Custom Footer */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Custom Footer</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DialogDemo.jsx"
+                code={`<Dialog
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Custom Actions"
+  description="Dialog with custom footer buttons."
+  footer={
+    <>
+      <Button 
+        variant="ghost" 
+        size="sm" 
+        onPress={() => setIsOpen(false)}
+        className="mr-2"
+      >
+        Cancel
+      </Button>
+      <Button 
+        variant="default" 
+        size="sm"
+        onPress={handleSave}
+        className="mr-2"
+      >
+        Save
+      </Button>
+      <Button 
+        variant="destructive" 
+        size="sm"
+        onPress={handleDelete}
+      >
+        Delete
+      </Button>
+    </>
+  }
+>
+  <Text>Are you sure you want to perform this action?</Text>
+</Dialog>`}
+              />
+            </div>
+          </div>
+
+          {/* AlertDialog Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">AlertDialog</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DialogDemo.jsx"
+                code={`const [showAlert, setShowAlert] = useState(false);
+
+<View>
+  <Button onPress={() => setShowAlert(true)}>
+    Show Alert
+  </Button>
+  
+  <AlertDialog
+    isOpen={showAlert}
+    onClose={() => setShowAlert(false)}
+    title="Confirm Action"
+    description="Are you sure you want to proceed? This action cannot be undone."
+    onConfirm={() => {
+      console.log('Action confirmed');
+      // Perform action here
+    }}
+    confirmText="Yes, proceed"
+    cancelText="Cancel"
+  />
+</View>`}
+              />
+            </div>
+          </div>
+
+          {/* Destructive AlertDialog */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Destructive Alert</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DialogDemo.jsx"
+                code={`<AlertDialog
+  isOpen={showDeleteAlert}
+  onClose={() => setShowDeleteAlert(false)}
+  title="Delete Item"
+  description="This will permanently delete the item. This action cannot be undone."
+  onConfirm={handleDelete}
+  confirmText="Delete"
+  cancelText="Keep"
+  danger={true}
+/>`}
+              />
+            </div>
+          </div>
+
+          {/* Dialog with Form Content */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Form Dialog</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DialogDemo.jsx"
+                code={`const [formData, setFormData] = useState({ name: '', email: '' });
 
 <Dialog
-  isOpen={isOpen}
-  onClose={() => setIsOpen(false)}
-  title="Confirmation"
+  isOpen={isFormOpen}
+  onClose={() => setIsFormOpen(false)}
+  title="Add New User"
+  description="Please fill in the user details below."
+  contentClassName="space-y-4"
+  footer={
+    <>
+      <Button 
+        variant="ghost" 
+        size="sm" 
+        onPress={() => setIsFormOpen(false)}
+        className="mr-2"
+      >
+        Cancel
+      </Button>
+      <Button 
+        variant="default" 
+        size="sm"
+        onPress={handleSubmit}
+      >
+        Add User
+      </Button>
+    </>
+  }
 >
-  <Text>Are you sure you want to continue?</Text>
-  <View style={{ flexDirection: 'row', gap: 8, marginTop: 16 }}>
-    <Button onPress={() => setIsOpen(false)}>Cancel</Button>
-    <Button variant="primary" onPress={handleConfirm}>
-      Confirm
-    </Button>
+  <View className="space-y-4">
+    <TextInput
+      placeholder="Full Name"
+      value={formData.name}
+      onChangeText={(text) => setFormData({...formData, name: text})}
+      className="border border-gray-300 rounded p-3"
+    />
+    <TextInput
+      placeholder="Email Address"
+      value={formData.email}
+      onChangeText={(text) => setFormData({...formData, email: text})}
+      className="border border-gray-300 rounded p-3"
+    />
   </View>
-</Dialog>`}</code>
-              </pre>
+</Dialog>`}
+              />
             </div>
           </div>
 
-          {/* Custom Animation */}
+          {/* Custom Styling Example */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-white">Custom Animation</h3>
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
-              <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-                <code>{`<Dialog
+            <h3 className="text-xl font-semibold">Custom Styling</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="DialogDemo.jsx"
+                code={`<Dialog
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
-  animationConfig={{
-    duration: 200,
-    easing: 'ease-in-out',
-    initial: { scale: 0.9, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0.9, opacity: 0 }
-  }}
+  title="Custom Styled Dialog"
+  className="border-2 border-blue-500"
+  contentClassName="bg-blue-50"
+  overlayClassName="bg-blue-900/30"
 >
-  <Text>Animated dialog content</Text>
-</Dialog>`}</code>
-              </pre>
-            </div>
-          </div>
-
-          {/* Nested Dialogs */}
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-white">Nested Dialogs</h3>
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
-              <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-                <code>{`<Dialog isOpen={isOpen} onClose={() => setIsOpen(false)}>
-  <Text>First dialog</Text>
-  <Button onPress={() => setNestedOpen(true)}>
-    Open nested dialog
-  </Button>
-
-  <Dialog
-    isOpen={nestedOpen}
-    onClose={() => setNestedOpen(false)}
-  >
-    <Text>Nested dialog content</Text>
-  </Dialog>
-</Dialog>`}</code>
-              </pre>
+  <Text className="text-blue-800">
+    This dialog has custom styling applied.
+  </Text>
+</Dialog>`}
+              />
             </div>
           </div>
         </div>
