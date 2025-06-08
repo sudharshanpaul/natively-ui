@@ -1,14 +1,14 @@
 import React from "react";
 import { Terminal } from 'lucide-react';
 
-export default function DialogPage() {
+export default function DrawerPage() {
   return (
     <div className="text-gray-100 space-y-8 min-h-screen">
       {/* Component Header */}
       <div>
-        <h1 className="text-3xl font-bold mb-4 text-white">Dialog</h1>
+        <h1 className="text-3xl font-bold mb-4 text-white">Drawer</h1>
         <p className="text-lg text-gray-400">
-          A modal dialog component that provides a focused interaction with custom content while temporarily blocking interactions with the rest of the application.
+          A sliding panel that enters from the edge of the screen, commonly used for navigation or filters in mobile applications.
         </p>
       </div>
 
@@ -21,7 +21,7 @@ export default function DialogPage() {
             <p className="font-mono text-sm text-gray-300">Install the component:</p>
           </div>
           <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-            <code>natively install dialog</code>
+            <code>natively install drawer</code>
           </pre>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function DialogPage() {
         <h2 className="text-2xl font-bold text-white">Usage</h2>
         <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
           <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-            <code>{`import { Dialog } from '@natively/dialog';
+            <code>{`import { Drawer } from '@natively/drawer';
 
 export default function MyComponent() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -39,16 +39,25 @@ export default function MyComponent() {
   return (
     <>
       <Button onPress={() => setIsOpen(true)}>
-        Open Dialog
+        Open Drawer
       </Button>
 
-      <Dialog 
-        isOpen={isOpen} 
+      <Drawer
+        isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title="Dialog Title"
+        side="left"
       >
-        <Text>Dialog content goes here</Text>
-      </Dialog>
+        <View style={{ padding: 16 }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+            Navigation
+          </Text>
+          <View style={{ marginTop: 16 }}>
+            <Text>Menu Item 1</Text>
+            <Text>Menu Item 2</Text>
+            <Text>Menu Item 3</Text>
+          </View>
+        </View>
+      </Drawer>
     </>
   );
 }`}</code>
@@ -75,37 +84,49 @@ export default function MyComponent() {
                 <td className="p-3 font-mono text-sm text-gray-300">isOpen</td>
                 <td className="p-3 font-mono text-sm text-gray-300">boolean</td>
                 <td className="p-3 font-mono text-sm text-gray-300">false</td>
-                <td className="p-3 text-sm text-gray-400">Controls the visibility of the dialog.</td>
+                <td className="p-3 text-sm text-gray-400">Controls the visibility of the drawer.</td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm text-gray-300">onClose</td>
                 <td className="p-3 font-mono text-sm text-gray-300">() =&gt; void</td>
                 <td className="p-3 font-mono text-sm text-gray-300">-</td>
-                <td className="p-3 text-sm text-gray-400">Callback when the dialog is closed.</td>
+                <td className="p-3 text-sm text-gray-400">Callback when the drawer is closed.</td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">title</td>
+                <td className="p-3 font-mono text-sm text-gray-300">side</td>
+                <td className="p-3 font-mono text-sm text-gray-300">'left' | 'right' | 'top' | 'bottom'</td>
+                <td className="p-3 font-mono text-sm text-gray-300">'left'</td>
+                <td className="p-3 text-sm text-gray-400">The side from which the drawer appears.</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm text-gray-300">width</td>
+                <td className="p-3 font-mono text-sm text-gray-300">number</td>
+                <td className="p-3 font-mono text-sm text-gray-300">300</td>
+                <td className="p-3 text-sm text-gray-400">Width of the drawer (for left/right drawers).</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm text-gray-300">height</td>
+                <td className="p-3 font-mono text-sm text-gray-300">number</td>
+                <td className="p-3 font-mono text-sm text-gray-300">300</td>
+                <td className="p-3 text-sm text-gray-400">Height of the drawer (for top/bottom drawers).</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm text-gray-300">overlayColor</td>
                 <td className="p-3 font-mono text-sm text-gray-300">string</td>
-                <td className="p-3 font-mono text-sm text-gray-300">-</td>
-                <td className="p-3 text-sm text-gray-400">The title of the dialog.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-mono text-sm text-gray-300">children</td>
-                <td className="p-3 font-mono text-sm text-gray-300">ReactNode</td>
-                <td className="p-3 font-mono text-sm text-gray-300">-</td>
-                <td className="p-3 text-sm text-gray-400">The content of the dialog.</td>
+                <td className="p-3 font-mono text-sm text-gray-300">'rgba(0, 0, 0, 0.5)'</td>
+                <td className="p-3 text-sm text-gray-400">Color of the overlay behind the drawer.</td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm text-gray-300">overlayClose</td>
                 <td className="p-3 font-mono text-sm text-gray-300">boolean</td>
                 <td className="p-3 font-mono text-sm text-gray-300">true</td>
-                <td className="p-3 text-sm text-gray-400">Whether clicking the overlay closes the dialog.</td>
+                <td className="p-3 text-sm text-gray-400">Whether clicking the overlay closes the drawer.</td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm text-gray-300">closeOnEscape</td>
                 <td className="p-3 font-mono text-sm text-gray-300">boolean</td>
                 <td className="p-3 font-mono text-sm text-gray-300">true</td>
-                <td className="p-3 text-sm text-gray-400">Whether pressing escape closes the dialog.</td>
+                <td className="p-3 text-sm text-gray-400">Whether pressing escape closes the drawer.</td>
               </tr>
             </tbody>
           </table>
@@ -116,14 +137,14 @@ export default function MyComponent() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-white">Features</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-400 pl-2">
-          <li>Modal overlay with customizable backdrop</li>
-          <li>Focus trap within dialog</li>
-          <li>Keyboard navigation and escape key handling</li>
-          <li>Customizable animations</li>
-          <li>Accessible ARIA attributes</li>
-          <li>Scroll lock on body when open</li>
-          <li>Responsive design</li>
-          <li>Custom close triggers</li>
+          <li>Smooth slide animations</li>
+          <li>Multiple placement options (left, right, top, bottom)</li>
+          <li>Customizable dimensions</li>
+          <li>Backdrop overlay with tap-to-close</li>
+          <li>Gesture-based interactions</li>
+          <li>Keyboard navigation support</li>
+          <li>Accessible focus management</li>
+          <li>Safe area insets handling</li>
         </ul>
       </section>
 
@@ -139,63 +160,64 @@ export default function MyComponent() {
               <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
                 <code>{`const [isOpen, setIsOpen] = React.useState(false);
 
-<Dialog
+<Drawer
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
-  title="Confirmation"
+  side="left"
 >
-  <Text>Are you sure you want to continue?</Text>
-  <View style={{ flexDirection: 'row', gap: 8, marginTop: 16 }}>
-    <Button onPress={() => setIsOpen(false)}>Cancel</Button>
-    <Button variant="primary" onPress={handleConfirm}>
-      Confirm
-    </Button>
+  <View style={{ padding: 16 }}>
+    <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+      Menu
+    </Text>
+    <View style={{ marginTop: 16 }}>
+      <Text>Home</Text>
+      <Text>Profile</Text>
+      <Text>Settings</Text>
+    </View>
   </View>
-</Dialog>`}</code>
+</Drawer>`}</code>
               </pre>
             </div>
           </div>
 
-          {/* Custom Animation */}
+          {/* Custom Placement */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-white">Custom Animation</h3>
+            <h3 className="text-xl font-semibold text-white">Custom Placement</h3>
             <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
               <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-                <code>{`<Dialog
+                <code>{`<Drawer
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
-  animationConfig={{
-    duration: 200,
-    easing: 'ease-in-out',
-    initial: { scale: 0.9, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0.9, opacity: 0 }
+  side="bottom"
+  height={400}
+  overlayColor="rgba(0, 0, 0, 0.7)"
+>
+  <View style={{ padding: 16 }}>
+    <Text>Bottom drawer content</Text>
+  </View>
+</Drawer>`}</code>
+              </pre>
+            </div>
+          </div>
+
+          {/* With Gestures */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold text-white">With Gestures</h3>
+            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
+              <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
+                <code>{`<Drawer
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  enableGestures={true}
+  gestureHandlerProps={{
+    activeOffsetX: [-20, 20],
+    failOffsetY: [-20, 20]
   }}
 >
-  <Text>Animated dialog content</Text>
-</Dialog>`}</code>
-              </pre>
-            </div>
-          </div>
-
-          {/* Nested Dialogs */}
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-white">Nested Dialogs</h3>
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 space-y-4">
-              <pre className="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-300">
-                <code>{`<Dialog isOpen={isOpen} onClose={() => setIsOpen(false)}>
-  <Text>First dialog</Text>
-  <Button onPress={() => setNestedOpen(true)}>
-    Open nested dialog
-  </Button>
-
-  <Dialog
-    isOpen={nestedOpen}
-    onClose={() => setNestedOpen(false)}
-  >
-    <Text>Nested dialog content</Text>
-  </Dialog>
-</Dialog>`}</code>
+  <View style={{ padding: 16 }}>
+    <Text>Swipe to close</Text>
+  </View>
+</Drawer>`}</code>
               </pre>
             </div>
           </div>

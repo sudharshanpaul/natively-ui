@@ -170,7 +170,7 @@ export default function HomePage() {
                   <Link
                     key={component}
                     href={`/components/${component.toLowerCase()}`}
-                    className="group flex flex-col items-center gap-2 rounded-lg border bg-background p-6 shadow-sm transition-colors hover:border-primary/50 hover:bg-accent"
+                    className="group flex flex-col items-center gap-2 rounded-lg border bg-background p-6 shadow-sm transition-colors hover:border-primary/50 hover:bg-slate-900"
                   >
                     <div className="rounded-md bg-muted p-4 transition-colors group-hover:bg-muted/70">
                       <div className="h-32 w-full rounded-md bg-muted/50"></div>

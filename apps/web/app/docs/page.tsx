@@ -82,19 +82,19 @@ export default function DocsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-8">Why Choose natively?</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-accent rounded-lg p-6">
+          <div className="bg-slate-900 rounded-lg p-6">
             <h3 className="text-lg font-semibold mb-2">Accessible by Default</h3>
             <p className="text-muted-foreground">
               Built with accessibility in mind, following WCAG guidelines and React Native best practices.
             </p>
           </div>
-          <div className="bg-accent rounded-lg p-6">
+          <div className="bg-slate-900 rounded-lg p-6">
             <h3 className="text-lg font-semibold mb-2">Customizable</h3>
             <p className="text-muted-foreground">
               Flexible theming system that works with your existing design tokens and styles.
             </p>
           </div>
-          <div className="bg-accent rounded-lg p-6">
+          <div className="bg-slate-900 rounded-lg p-6">
             <h3 className="text-lg font-semibold mb-2">Developer Experience</h3>
             <p className="text-muted-foreground">
               Simple installation process, comprehensive documentation, and TypeScript support.

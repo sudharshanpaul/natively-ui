@@ -28,13 +28,13 @@ export default function ButtonPage() {
       {/* Installation */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Installation</h2>
-        <div className="bg-accent rounded-lg p-4">
+        <div className="bg-slate-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
             <Terminal className="w-4 h-4" />
             <p className="font-mono text-sm">Install the component:</p>
           </div>
-          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
-            <code>natively install button</code>
+          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
+            <code>npx nativly add button</code>
           </pre>
         </div>
       </section>
@@ -43,8 +43,11 @@ export default function ButtonPage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
         <div className="bg-card rounded-lg p-6 border space-y-4">
-          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
-            <code>{`import { Button } from '@natively/button';
+             <CodeBlock
+        language="jsx"
+        filename="ButtonDemo.jsx"
+        highlightLines={[9, 13, 14, 18]}
+        code={`import { Button } from '@natively/button';
 
 export default function MyComponent() {
   return (
@@ -55,8 +58,8 @@ export default function MyComponent() {
       Click me
     </Button>
   );
-}`}</code>
-          </pre>
+}`}
+      />
         </div>
       </section>
 
@@ -66,7 +69,7 @@ export default function MyComponent() {
         
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
-            <thead className="bg-accent">
+            <thead className="bg-slate-900">
               <tr>
                 <th className="text-left p-3 border-b">Prop</th>
                 <th className="text-left p-3 border-b">Type</th>
@@ -101,7 +104,7 @@ export default function MyComponent() {
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">onPress</td>
-                <td className="p-3 font-mono text-sm">() => void</td>
+                <td className="p-3 font-mono text-sm">() =&gt; void</td>
                 <td className="p-3 font-mono text-sm">-</td>
                 <td className="p-3 text-sm">Function called when the button is pressed.</td>
               </tr>
@@ -134,7 +137,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Variants</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`<View style={{ gap: 8 }}>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
@@ -151,7 +154,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">With Icon</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`<Button>
   <Icon name="plus" size={16} />
   <Text>Add Item</Text>
@@ -168,7 +171,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Loading State</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`const [isLoading, setIsLoading] = useState(false);
 
 <Button 

@@ -15,12 +15,12 @@ export default function ComboboxPage() {
       {/* Installation */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Installation</h2>
-        <div className="bg-accent rounded-lg p-4">
+        <div className="bg-slate-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
             <Terminal className="w-4 h-4" />
             <p className="font-mono text-sm">Install the component:</p>
           </div>
-          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
             <code>natively install combobox</code>
           </pre>
         </div>
@@ -30,7 +30,7 @@ export default function ComboboxPage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
         <div className="bg-card rounded-lg p-6 border space-y-4">
-          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
             <code>{`import { Combobox } from '@natively/combobox';
 
 export default function MyComponent() {
@@ -56,7 +56,7 @@ export default function MyComponent() {
         
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
-            <thead className="bg-accent">
+            <thead className="bg-slate-900">
               <tr>
                 <th className="text-left p-3 border-b">Prop</th>
                 <th className="text-left p-3 border-b">Type</th>
@@ -130,7 +130,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Complex Options</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`const options = [
   { id: 1, label: 'Apple', value: 'apple', icon: '🍎' },
   { id: 2, label: 'Banana', value: 'banana', icon: '🍌' },
@@ -156,7 +156,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Async Loading</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`const [loading, setLoading] = useState(false);
 const [options, setOptions] = useState([]);
 
@@ -183,7 +183,7 @@ const loadOptions = async (query) => {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Custom Filtering</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`<Combobox
   options={options}
   value={value}

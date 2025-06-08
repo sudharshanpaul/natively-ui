@@ -14,12 +14,12 @@ export default function CollapsiblePage() {
       {/* Installation */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Installation</h2>
-        <div className="bg-accent rounded-lg p-4">
+        <div className="bg-slate-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
             <Terminal className="w-4 h-4" />
             <p className="font-mono text-sm">Install the component:</p>
           </div>
-          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
             <code>natively install collapsible</code>
           </pre>
         </div>
@@ -29,7 +29,7 @@ export default function CollapsiblePage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
         <div className="bg-card rounded-lg p-6 border space-y-4">
-          <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
             <code>{`import { Collapsible } from '@natively/collapsible';
 
 export default function MyComponent() {
@@ -56,7 +56,7 @@ export default function MyComponent() {
         
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
-            <thead className="bg-accent">
+            <thead className="bg-slate-900">
               <tr>
                 <th className="text-left p-3 border-b">Prop</th>
                 <th className="text-left p-3 border-b">Type</th>
@@ -73,7 +73,7 @@ export default function MyComponent() {
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">onOpenChange</td>
-                <td className="p-3 font-mono text-sm">(open: boolean) => void</td>
+                <td className="p-3 font-mono text-sm">(open: boolean) =&gt; void</td>
                 <td className="p-3 font-mono text-sm">-</td>
                 <td className="p-3 text-sm">Function called when the open state changes.</td>
               </tr>
@@ -117,7 +117,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Custom Animation</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`<Collapsible
   animationConfig={{
     duration: 300,
@@ -142,7 +142,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Nested Collapsibles</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`<Collapsible>
   <Collapsible.Trigger>Parent Section</Collapsible.Trigger>
   <Collapsible.Content>
@@ -164,7 +164,7 @@ export default function MyComponent() {
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">With Icons and Styling</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-secondary p-4 rounded-md overflow-x-auto">
+              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
                 <code>{`<Collapsible
   style={{
     borderWidth: 1,
