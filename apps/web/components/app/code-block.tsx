@@ -3,7 +3,6 @@ import React from "react";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 import { Prism as SyntaxHighlighterComponent } from "react-syntax-highlighter";
-
 const SyntaxHighlighter = SyntaxHighlighterComponent as any;
 
 type CodeBlockProps = {
@@ -47,16 +46,16 @@ export const CodeBlock = ({
     }
   };
 
-  const activeCode = tabsExist ? (tabs[activeTab]?.code ?? "") : code;
+  const activeCode = tabsExist ? tabs[activeTab]?.code : code;
   const activeLanguage = tabsExist
-    ? (tabs[activeTab]?.language ?? language)
+    ? tabs[activeTab]?.language || language
     : language;
   const activeHighlightLines = tabsExist
-    ? (tabs[activeTab]?.highlightLines ?? [])
+    ? tabs[activeTab]?.highlightLines || []
     : highlightLines;
 
   return (
-    <div className="relative w-full rounded-lg bg-zinc-900 p-4 font-mono text-sm">
+    <div className="relative w-full rounded-lg bg-slate-900 p-4 font-mono text-sm">
       <div className="flex flex-col gap-2">
         {tabsExist && (
           <div className="flex  overflow-x-auto">
@@ -94,10 +93,10 @@ export const CodeBlock = ({
           margin: 0,
           padding: 0,
           background: "transparent",
-          fontSize: "0.875rem", // text-sm equivalent
+          fontSize: "0.875rem",
         }}
         wrapLines={true}
-        // showLineNumbers={true}
+        showLineNumbers={true}
         lineProps={(lineNumber: number) => ({
           style: {
             backgroundColor: activeHighlightLines.includes(lineNumber)

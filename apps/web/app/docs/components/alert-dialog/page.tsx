@@ -77,7 +77,7 @@ export default function MyComponent() {
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">onOpenChange</td>
-                <td className="p-3 font-mono text-sm">(open: boolean) => void</td>
+                <td className="p-3 font-mono text-sm">(open: boolean) =&gt; void</td>
                 <td className="p-3 font-mono text-sm">-</td>
                 <td className="p-3 text-sm">Callback when open state changes.</td>
               </tr>
