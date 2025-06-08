@@ -1,13 +1,16 @@
-import { Terminal } from 'lucide-react';
+import React from "react";
+import { CodeBlock } from "@/components/app/code-block";
+import { Terminal } from "lucide-react";
 
 export default function AlertDialogPage() {
   return (
     <div className="space-y-8">
       {/* Component Header */}
       <div>
-        <h1 className="text-3xl font-bold mb-4">Alert Dialog</h1>
+        <h1 className="text-3xl font-bold mb-4">AlertDialog</h1>
         <p className="text-lg text-muted-foreground">
-          A modal dialog that interrupts the user with important content and expects a response.
+          A modal dialog that interrupts the user with important content and
+          expects a response.
         </p>
       </div>
 
@@ -20,7 +23,7 @@ export default function AlertDialogPage() {
             <p className="font-mono text-sm">Install the component:</p>
           </div>
           <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>natively install alert-dialog</code>
+            <code>npx natively-cli add alert-dialog</code>
           </pre>
         </div>
       </section>
@@ -28,40 +31,132 @@ export default function AlertDialogPage() {
       {/* Usage */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
-        <div className="bg-card rounded-lg p-6 border space-y-4">
-          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>{`import { AlertDialog } from '@natively/alert-dialog';
+        <div className="bg-card rounded-lg space-y-4">
+          <CodeBlock
+            language="jsx"
+            filename="AlertDialogDemo.jsx"
+            highlightLines={[1]}
+            code={`import { 
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction
+} from '@natively-ui/alert-dialog';
 
 export default function MyComponent() {
   return (
     <AlertDialog>
-      <AlertDialog.Trigger>Delete Account</AlertDialog.Trigger>
-      <AlertDialog.Content>
-        <AlertDialog.Title>Are you sure?</AlertDialog.Title>
-        <AlertDialog.Description>
-          This action cannot be undone. This will permanently delete your account
-          and remove your data from our servers.
-        </AlertDialog.Description>
-        <AlertDialog.Footer>
-          <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-          <AlertDialog.Action>Delete Account</AlertDialog.Action>
-        </AlertDialog.Footer>
-      </AlertDialog.Content>
+      <AlertDialogTrigger>
+        <Button>Delete Account</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your account.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
     </AlertDialog>
   );
-}`}</code>
-          </pre>
+}`}
+          />
+        </div>
+      </section>
+
+      {/* Component API */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Component API</h2>
+
+        <div className="border rounded-lg overflow-hidden">
+          <table className="w-full border-collapse">
+            <thead className="bg-slate-900">
+              <tr>
+                <th className="text-left p-3 border-b">Component</th>
+                <th className="text-left p-3 border-b">Description</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialog</td>
+                <td className="p-3 text-sm">
+                  Root component that manages dialog state and provides context
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogTrigger</td>
+                <td className="p-3 text-sm">
+                  Button or element that opens the dialog when pressed
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogContent</td>
+                <td className="p-3 text-sm">
+                  Modal container that displays the dialog content
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogHeader</td>
+                <td className="p-3 text-sm">
+                  Container for dialog title and description with proper spacing
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogTitle</td>
+                <td className="p-3 text-sm">
+                  Title text component with appropriate typography
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">
+                  AlertDialogDescription
+                </td>
+                <td className="p-3 text-sm">
+                  Description text with subdued styling
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogFooter</td>
+                <td className="p-3 text-sm">
+                  Container for action buttons with proper layout
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogCancel</td>
+                <td className="p-3 text-sm">
+                  Cancel button that closes the dialog without action
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogAction</td>
+                <td className="p-3 text-sm">
+                  Action button that performs the primary action and closes
+                  dialog
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       {/* Props */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Props</h2>
-        
+
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
             <thead className="bg-slate-900">
               <tr>
+                <th className="text-left p-3 border-b">Component</th>
                 <th className="text-left p-3 border-b">Prop</th>
                 <th className="text-left p-3 border-b">Type</th>
                 <th className="text-left p-3 border-b">Default</th>
@@ -70,22 +165,78 @@ export default function MyComponent() {
             </thead>
             <tbody className="divide-y">
               <tr>
-                <td className="p-3 font-mono text-sm">open</td>
-                <td className="p-3 font-mono text-sm">boolean</td>
-                <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">Controlled open state of the dialog.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-mono text-sm">onOpenChange</td>
-                <td className="p-3 font-mono text-sm">(open: boolean) =&gt; void</td>
-                <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">Callback when open state changes.</td>
-              </tr>
-              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialog</td>
                 <td className="p-3 font-mono text-sm">defaultOpen</td>
                 <td className="p-3 font-mono text-sm">boolean</td>
                 <td className="p-3 font-mono text-sm">false</td>
-                <td className="p-3 text-sm">Initial open state.</td>
+                <td className="p-3 text-sm">
+                  Whether the dialog is open by default
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogTrigger</td>
+                <td className="p-3 font-mono text-sm">asChild</td>
+                <td className="p-3 font-mono text-sm">boolean</td>
+                <td className="p-3 font-mono text-sm">false</td>
+                <td className="p-3 text-sm">
+                  Render as child element instead of button
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogTrigger</td>
+                <td className="p-3 font-mono text-sm">onPress</td>
+                <td className="p-3 font-mono text-sm">() =&gt; void</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Additional function called when trigger is pressed
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogTrigger</td>
+                <td className="p-3 font-mono text-sm">className</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for styling
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogContent</td>
+                <td className="p-3 font-mono text-sm">className</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for modal content
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogAction</td>
+                <td className="p-3 font-mono text-sm">variant</td>
+                <td className="p-3 font-mono text-sm">
+                  'default' | 'destructive'
+                </td>
+                <td className="p-3 font-mono text-sm">'default'</td>
+                <td className="p-3 text-sm">
+                  Visual style variant of the action button
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogAction</td>
+                <td className="p-3 font-mono text-sm">onPress</td>
+                <td className="p-3 font-mono text-sm">() =&gt; void</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Function called when action button is pressed
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">AlertDialogCancel</td>
+                <td className="p-3 font-mono text-sm">onPress</td>
+                <td className="p-3 font-mono text-sm">() =&gt; void</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Function called when cancel button is pressed
+                </td>
               </tr>
             </tbody>
           </table>
@@ -96,63 +247,183 @@ export default function MyComponent() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Features</h2>
         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>Focus is automatically trapped when opened</li>
-          <li>WAI-ARIA compliant with aria-labels</li>
-          <li>Supports keyboard navigation (Esc to close)</li>
-          <li>Animated entrance and exit</li>
-          <li>Customizable styling</li>
-          <li>Backdrop click handling</li>
+          <li>Modal overlay with backdrop blur and darkening</li>
+          <li>Keyboard accessible with proper focus management</li>
+          <li>Compound component pattern for flexible composition</li>
+          <li>Support for destructive and default action variants</li>
+          <li>Automatic dialog state management</li>
+          <li>Customizable styling through className props</li>
+          <li>Support for custom trigger elements with asChild prop</li>
+          <li>Built with Tailwind CSS and React Native</li>
         </ul>
       </section>
 
       {/* Examples */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Examples</h2>
-        
+
         <div className="space-y-6">
-          {/* Basic Example */}
+          {/* Basic Usage Example */}
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Basic Usage</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`<AlertDialog>
-  <AlertDialog.Trigger>Open Dialog</AlertDialog.Trigger>
-  <AlertDialog.Content>
-    <AlertDialog.Title>Confirm Action</AlertDialog.Title>
-    <AlertDialog.Description>
-      Are you sure you want to perform this action?
-    </AlertDialog.Description>
-    <AlertDialog.Footer>
-      <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-      <AlertDialog.Action>Continue</AlertDialog.Action>
-    </AlertDialog.Footer>
-  </AlertDialog.Content>
-</AlertDialog>`}</code>
-              </pre>
+              <CodeBlock
+                language="jsx"
+                filename="AlertDialogDemo.jsx"
+                code={`<AlertDialog>
+  <AlertDialogTrigger>
+    <Button variant="destructive">Delete Item</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Delete Item</AlertDialogTitle>
+      <AlertDialogDescription>
+        Are you sure you want to delete this item? This action cannot be undone.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}
+              />
             </div>
           </div>
 
-          {/* Controlled Example */}
+          {/* Custom Trigger Example */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold">Controlled Dialog</h3>
+            <h3 className="text-xl font-semibold">Custom Trigger</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`const [isOpen, setIsOpen] = useState(false);
+              <CodeBlock
+                language="jsx"
+                filename="AlertDialogDemo.jsx"
+                code={`<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Pressable style={{ padding: 12, backgroundColor: '#ef4444', borderRadius: 8 }}>
+      <Text style={{ color: 'white', fontWeight: 'bold' }}>
+        Custom Delete Button
+      </Text>
+    </Pressable>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
+      <AlertDialogDescription>
+        This will permanently remove the selected items.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Keep Items</AlertDialogCancel>
+      <AlertDialogAction variant="destructive">Delete Items</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}
+              />
+            </div>
+          </div>
 
-<AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-  <AlertDialog.Trigger>Open Controlled Dialog</AlertDialog.Trigger>
-  <AlertDialog.Content>
-    <AlertDialog.Title>Controlled Dialog</AlertDialog.Title>
-    <AlertDialog.Description>
-      This dialog's state is controlled externally.
-    </AlertDialog.Description>
-    <AlertDialog.Footer>
-      <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-      <AlertDialog.Action>Continue</AlertDialog.Action>
-    </AlertDialog.Footer>
-  </AlertDialog.Content>
-</AlertDialog>`}</code>
-              </pre>
+          {/* With Action Handlers Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">With Action Handlers</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="AlertDialogDemo.jsx"
+                code={`const [isLoading, setIsLoading] = useState(false);
+
+<AlertDialog>
+  <AlertDialogTrigger>
+    <Button>Save Changes</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Save Changes</AlertDialogTitle>
+      <AlertDialogDescription>
+        Do you want to save your changes before leaving?
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel 
+        onPress={() => {
+          console.log('Changes discarded');
+        }}
+      >
+        Discard
+      </AlertDialogCancel>
+      <AlertDialogAction 
+        onPress={async () => {
+          setIsLoading(true);
+          await saveChanges();
+          setIsLoading(false);
+          console.log('Changes saved');
+        }}
+      >
+        Save Changes
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}
+              />
+            </div>
+          </div>
+
+          {/* Custom Styling Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Custom Styling</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="AlertDialogDemo.jsx"
+                code={`<AlertDialog>
+  <AlertDialogTrigger className="bg-blue-500 px-4 py-2 rounded-lg">
+    <Text style={{ color: 'white' }}>Open Dialog</Text>
+  </AlertDialogTrigger>
+  <AlertDialogContent className="bg-slate-50 border-slate-200 rounded-xl max-w-sm">
+    <AlertDialogHeader>
+      <AlertDialogTitle className="text-blue-700">
+        Custom Dialog
+      </AlertDialogTitle>
+      <AlertDialogDescription className="text-slate-600">
+        This dialog has custom styling applied to all components.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter className="gap-3">
+      <AlertDialogCancel className="bg-slate-200 text-slate-700">
+        Cancel
+      </AlertDialogCancel>
+      <AlertDialogAction className="bg-blue-600">
+        Confirm
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}
+              />
+            </div>
+          </div>
+
+          {/* Default Open Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Default Open</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="AlertDialogDemo.jsx"
+                code={`// Dialog opens automatically when component mounts
+<AlertDialog defaultOpen={true}>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Welcome!</AlertDialogTitle>
+      <AlertDialogDescription>
+        This dialog opened automatically when the page loaded.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogAction>Got it</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}
+              />
             </div>
           </div>
         </div>

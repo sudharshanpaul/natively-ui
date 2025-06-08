@@ -22,7 +22,7 @@ export default function ButtonPage() {
             <p className="font-mono text-sm">Install the component:</p>
           </div>
           <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>npx nativly add button</code>
+            <code>npx natively-cli add button</code>
           </pre>
         </div>
       </section>

@@ -1,4 +1,6 @@
-import { Terminal } from 'lucide-react';
+import React from "react";
+import { CodeBlock } from "@/components/app/code-block";
+import { Terminal } from "lucide-react";
 
 export default function CheckboxPage() {
   return (
@@ -7,7 +9,8 @@ export default function CheckboxPage() {
       <div>
         <h1 className="text-3xl font-bold mb-4">Checkbox</h1>
         <p className="text-lg text-muted-foreground">
-          A control that allows users to select one or multiple items from a list.
+          A customizable checkbox component with controlled and uncontrolled
+          modes, disabled states, and label support.
         </p>
       </div>
 
@@ -20,7 +23,7 @@ export default function CheckboxPage() {
             <p className="font-mono text-sm">Install the component:</p>
           </div>
           <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>natively install checkbox</code>
+            <code>npx natively-cli add checkbox</code>
           </pre>
         </div>
       </section>
@@ -28,29 +31,29 @@ export default function CheckboxPage() {
       {/* Usage */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Usage</h2>
-        <div className="bg-card rounded-lg p-6 border space-y-4">
-          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>{`import { Checkbox } from '@natively/checkbox';
+        <div className="bg-card rounded-lg space-y-4">
+          <CodeBlock
+            language="jsx"
+            filename="CheckboxDemo.jsx"
+            highlightLines={[9]}
+            code={`import { Checkbox } from '@natively-ui/checkbox';
 
 export default function MyComponent() {
-  const [checked, setChecked] = useState(false);
-
   return (
-    <Checkbox
-      checked={checked}
-      onCheckedChange={setChecked}
+    <Checkbox 
       label="Accept terms and conditions"
+      onCheckedChange={(checked) => console.log('Checked:', checked)}
     />
   );
-}`}</code>
-          </pre>
+}`}
+          />
         </div>
       </section>
 
       {/* Props */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Props</h2>
-        
+
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
             <thead className="bg-slate-900">
@@ -63,40 +66,87 @@ export default function MyComponent() {
             </thead>
             <tbody className="divide-y">
               <tr>
+                <td className="p-3 font-mono text-sm">id</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Unique identifier for the checkbox element.
+                </td>
+              </tr>
+              <tr>
                 <td className="p-3 font-mono text-sm">checked</td>
                 <td className="p-3 font-mono text-sm">boolean</td>
-                <td className="p-3 font-mono text-sm">false</td>
-                <td className="p-3 text-sm">The controlled checked state of the checkbox.</td>
+                <td className="p-3 font-mono text-sm">-</td>
+                <td className="p-3 text-sm">
+                  Controlled state for the checkbox. When provided, checkbox
+                  becomes controlled.
+                </td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">defaultChecked</td>
                 <td className="p-3 font-mono text-sm">boolean</td>
                 <td className="p-3 font-mono text-sm">false</td>
-                <td className="p-3 text-sm">The default checked state when uncontrolled.</td>
+                <td className="p-3 text-sm">
+                  Initial checked state for uncontrolled checkbox.
+                </td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">onCheckedChange</td>
-                <td className="p-3 font-mono text-sm">(checked: boolean) => void</td>
+                <td className="p-3 font-mono text-sm">
+                  (checked: boolean) =&gt; void
+                </td>
                 <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">Function called when the checked state changes.</td>
+                <td className="p-3 text-sm">
+                  Function called when the checkbox state changes.
+                </td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">disabled</td>
                 <td className="p-3 font-mono text-sm">boolean</td>
                 <td className="p-3 font-mono text-sm">false</td>
-                <td className="p-3 text-sm">Whether the checkbox is disabled.</td>
+                <td className="p-3 text-sm">
+                  Whether the checkbox is disabled.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">required</td>
+                <td className="p-3 font-mono text-sm">boolean</td>
+                <td className="p-3 font-mono text-sm">false</td>
+                <td className="p-3 text-sm">
+                  Whether the checkbox is required for form validation.
+                </td>
               </tr>
               <tr>
                 <td className="p-3 font-mono text-sm">label</td>
                 <td className="p-3 font-mono text-sm">string</td>
                 <td className="p-3 font-mono text-sm">-</td>
-                <td className="p-3 text-sm">The label text for the checkbox.</td>
+                <td className="p-3 text-sm">
+                  Text label displayed next to the checkbox.
+                </td>
               </tr>
               <tr>
-                <td className="p-3 font-mono text-sm">size</td>
-                <td className="p-3 font-mono text-sm">'sm' | 'md' | 'lg'</td>
-                <td className="p-3 font-mono text-sm">'md'</td>
-                <td className="p-3 text-sm">The size of the checkbox.</td>
+                <td className="p-3 font-mono text-sm">className</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the checkbox container.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">checkboxClassName</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the checkbox element.
+                </td>
+              </tr>
+              <tr>
+                <td className="p-3 font-mono text-sm">labelClassName</td>
+                <td className="p-3 font-mono text-sm">string</td>
+                <td className="p-3 font-mono text-sm">""</td>
+                <td className="p-3 text-sm">
+                  Additional CSS classes for the label text.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -107,80 +157,161 @@ export default function MyComponent() {
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Features</h2>
         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>Controlled and uncontrolled modes</li>
-          <li>Multiple size options</li>
-          <li>Customizable colors and styles</li>
-          <li>Support for disabled state</li>
-          <li>Accessible label support</li>
-          <li>Haptic feedback</li>
-          <li>Custom check icon</li>
-          <li>Group support for multiple checkboxes</li>
+          <li>
+            Controlled and uncontrolled modes for flexible state management
+          </li>
+          <li>Built-in accessibility support with proper ARIA attributes</li>
+          <li>Disabled state with visual feedback</li>
+          <li>Optional label with clickable interaction</li>
+          <li>Customizable styling with className props</li>
+          <li>Form validation support with required prop</li>
+          <li>Built with React Native and Expo Vector Icons</li>
+          <li>Forward ref support for external access</li>
         </ul>
       </section>
 
       {/* Examples */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Examples</h2>
-        
+
         <div className="space-y-6">
-          {/* Basic Example */}
+          {/* Basic Usage Example */}
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Basic Usage</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`<View style={{ gap: 10 }}>
-  <Checkbox
-    label="Option 1"
-    onCheckedChange={(checked) => console.log('Option 1:', checked)}
-  />
-  <Checkbox
-    label="Option 2"
-    onCheckedChange={(checked) => console.log('Option 2:', checked)}
-  />
-</View>`}</code>
-              </pre>
+              <CodeBlock
+                language="jsx"
+                filename="CheckboxDemo.jsx"
+                code={`<View style={{ gap: 12 }}>
+  <Checkbox label="I agree to the terms" />
+  <Checkbox label="Subscribe to newsletter" defaultChecked />
+  <Checkbox label="Remember me" />
+</View>`}
+              />
             </div>
           </div>
 
-          {/* Checkbox Group */}
+          {/* Controlled Example */}
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold">Checkbox Group</h3>
+            <h3 className="text-xl font-semibold">Controlled Checkbox</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`const [selected, setSelected] = useState(['option1']);
+              <CodeBlock
+                language="jsx"
+                filename="CheckboxDemo.jsx"
+                code={`const [isChecked, setIsChecked] = useState(false);
 
-<Checkbox.Group
-  value={selected}
-  onValueChange={setSelected}
->
-  <Checkbox value="option1" label="Option 1" />
-  <Checkbox value="option2" label="Option 2" />
-  <Checkbox value="option3" label="Option 3" />
-</Checkbox.Group>`}</code>
-              </pre>
+<Checkbox 
+  checked={isChecked}
+  onCheckedChange={setIsChecked}
+  label="Controlled checkbox"
+/>
+
+<Text>Status: {isChecked ? 'Checked' : 'Unchecked'}</Text>`}
+              />
             </div>
           </div>
 
-          {/* Custom Styling */}
+          {/* Disabled State Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Disabled State</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="CheckboxDemo.jsx"
+                code={`<View style={{ gap: 12 }}>
+  <Checkbox 
+    label="Disabled unchecked" 
+    disabled 
+  />
+  <Checkbox 
+    label="Disabled checked" 
+    disabled 
+    defaultChecked 
+  />
+</View>`}
+              />
+            </div>
+          </div>
+
+          {/* Custom Styling Example */}
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">Custom Styling</h3>
             <div className="bg-card rounded-lg p-6 border space-y-4">
-              <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-                <code>{`<Checkbox
-  size="lg"
-  style={{
-    backgroundColor: checked ? '#4F46E5' : 'transparent',
-    borderColor: '#4F46E5',
-    borderRadius: 6,
-  }}
-  checkIconStyle={{
-    color: 'white',
-    width: 16,
-    height: 16,
-  }}
-  label="Custom styled checkbox"
-/>`}</code>
-              </pre>
+              <CodeBlock
+                language="jsx"
+                filename="CheckboxDemo.jsx"
+                code={`<View style={{ gap: 12 }}>
+  <Checkbox 
+    label="Custom checkbox"
+    checkboxClassName="border-blue-500 bg-blue-50"
+    labelClassName="text-blue-700 font-semibold"
+  />
+  
+  <Checkbox 
+    label="Large checkbox"
+    checkboxClassName="h-6 w-6"
+    className="gap-3"
+  />
+</View>`}
+              />
+            </div>
+          </div>
+
+          {/* Form Integration Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Form Integration</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="CheckboxDemo.jsx"
+                code={`const [formData, setFormData] = useState({
+  terms: false,
+  newsletter: false,
+  notifications: true
+});
+
+const handleCheckboxChange = (field) => (checked) => {
+  setFormData(prev => ({ ...prev, [field]: checked }));
+};
+
+<View style={{ gap: 16 }}>
+  <Checkbox 
+    label="I accept the terms and conditions *"
+    checked={formData.terms}
+    onCheckedChange={handleCheckboxChange('terms')}
+    required
+  />
+  
+  <Checkbox 
+    label="Subscribe to newsletter"
+    checked={formData.newsletter}
+    onCheckedChange={handleCheckboxChange('newsletter')}
+  />
+  
+  <Checkbox 
+    label="Enable notifications"
+    checked={formData.notifications}
+    onCheckedChange={handleCheckboxChange('notifications')}
+  />
+</View>`}
+              />
+            </div>
+          </div>
+
+          {/* Without Label Example */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">Without Label</h3>
+            <div className="bg-card rounded-lg p-6 border space-y-4">
+              <CodeBlock
+                language="jsx"
+                filename="CheckboxDemo.jsx"
+                code={`<View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+  <Checkbox 
+    onCheckedChange={(checked) => console.log('Item 1:', checked)}
+  />
+  <Text>Custom label arrangement</Text>
+</View>`}
+              />
             </div>
           </div>
         </div>
