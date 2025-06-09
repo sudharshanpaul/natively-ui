@@ -20,12 +20,12 @@ export function Navbar() {
             >
               Documentation
             </Link>
-            <Link
+            {/* <Link
               href="/docs/components"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Components
-            </Link>
+            </Link> */}
             {/* <Link
               href="/examples"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -42,7 +42,7 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-2">
           <Link
-            href="https://github.com/natively-ui/natively-ui"
+            href="https://github.com/Ayushhgupta39/natively-ui"
             target="_blank"
             rel="noreferrer"
           >

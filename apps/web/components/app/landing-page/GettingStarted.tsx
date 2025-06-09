@@ -38,16 +38,19 @@ const resources = [
 
 export const GettingStarted = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-950 to-blue-950">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
+          <Badge
+            variant="outline"
+            className="mb-4 border-gray-700 text-gray-300"
+          >
             Ready to start?
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Start building today
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Everything you need to create amazing React Native apps is at your
             fingertips.
           </p>
@@ -59,7 +62,11 @@ export const GettingStarted = () => {
             >
               Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+            <Button
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-6 border-gray-600 text-gray-200 hover:bg-gray-800"
+            >
               View Examples
             </Button>
           </div>
@@ -69,23 +76,25 @@ export const GettingStarted = () => {
           {resources.map((resource, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-background/50 backdrop-blur-sm"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gray-800/30 border-gray-700 backdrop-blur-sm"
             >
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
+                  <div className="p-2 bg-blue-900/50 rounded-lg group-hover:bg-blue-800/50 transition-colors">
                     {resource.icon}
                   </div>
-                  <CardTitle className="text-xl">{resource.title}</CardTitle>
+                  <CardTitle className="text-xl text-white">
+                    {resource.title}
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base mb-4 leading-relaxed">
+                <CardDescription className="text-base mb-4 leading-relaxed text-gray-400">
                   {resource.description}
                 </CardDescription>
                 <Button
                   variant="ghost"
-                  className="group-hover:bg-blue-50 dark:group-hover:bg-blue-950 transition-colors"
+                  className="group-hover:bg-blue-900/30 transition-colors text-gray-300 hover:text-white"
                 >
                   {resource.action} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

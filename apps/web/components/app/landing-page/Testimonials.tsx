@@ -34,19 +34,22 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
+          <Badge
+            variant="outline"
+            className="mb-4 border-gray-700 text-gray-300"
+          >
             Testimonials
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Loved by developers
-            <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               worldwide
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Join thousands of developers who have transformed their React Native
             development experience with natively-ui.
           </p>
@@ -56,7 +59,7 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gray-800/50 border-gray-700 backdrop-blur-sm"
             >
               <CardContent className="pt-6">
                 <div className="flex mb-4">
@@ -67,7 +70,7 @@ export const Testimonials = () => {
                   ))}
                 </div>
 
-                <blockquote className="text-muted-foreground mb-6 leading-relaxed">
+                <blockquote className="text-gray-300 mb-6 leading-relaxed">
                   "{testimonial.content}"
                 </blockquote>
 
@@ -78,8 +81,10 @@ export const Testimonials = () => {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="font-semibold text-white">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-sm text-gray-400">
                       {testimonial.role} at {testimonial.company}
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-import { Footer } from "@/components/app/footer";
+import { Footer } from "@/components/app/Footer";
 import { CodeExample } from "@/components/app/landing-page/CodeExample";
 import { Features } from "@/components/app/landing-page/Features";
 import { GettingStarted } from "@/components/app/landing-page/GettingStarted";
