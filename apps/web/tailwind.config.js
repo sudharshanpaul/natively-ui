@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jetBrains: ["var(--font-jetbrains-mono)"],
+        fira: ["Fira Code", "monospace"]
       },
       borderRadius: {
         lg: "var(--radius)",

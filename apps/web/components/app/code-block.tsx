@@ -9,6 +9,7 @@ type CodeBlockProps = {
   language: string;
   filename: string;
   highlightLines?: number[];
+  showLineNumbers?: boolean;
 } & (
   | {
       code: string;
@@ -31,6 +32,7 @@ export const CodeBlock = ({
   code,
   highlightLines = [],
   tabs = [],
+  showLineNumbers = true,
 }: CodeBlockProps) => {
   const [copied, setCopied] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState(0);
@@ -74,9 +76,11 @@ export const CodeBlock = ({
             ))}
           </div>
         )}
-        {!tabsExist && filename && (
-          <div className="flex justify-between items-center px-4 py-2 border-b border-zinc-800 bg-[#1a1a1a]">
+        <div className="flex justify-between items-center px-4 py-2 border-b border-zinc-800 bg-[#1a1a1a]">
+          {!tabsExist && filename && (
             <div className="text-xs text-zinc-400">{filename}</div>
+          )}
+          <div className="w-full flex justify-end">
             <button
               onClick={copyToClipboard}
               className="flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
@@ -84,7 +88,7 @@ export const CodeBlock = ({
               {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
             </button>
           </div>
-        )}
+        </div>
       </div>
       <div className="relative">
         <SyntaxHighlighter
@@ -92,21 +96,23 @@ export const CodeBlock = ({
           style={oneDark}
           customStyle={{
             margin: 0,
-            padding: '16px',
-            background: '#1a1a1a',
-            fontSize: '13px',
-            fontFamily: '"SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace',
-            lineHeight: '1.5',
+            padding: "16px",
+            paddingLeft: "8px",
+            background: "#1a1a1a",
+            fontSize: "13px",
+            fontFamily:
+              '"SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace',
+            lineHeight: "1.5",
           }}
           wrapLines={true}
-          showLineNumbers={true}
+          showLineNumbers={showLineNumbers}
           lineNumberStyle={{
-            minWidth: '3em',
-            paddingRight: '1em',
-            textAlign: 'right',
-            userSelect: 'none',
-            color: '#4a5568',
-            fontSize: '13px',
+            minWidth: "3em",
+            paddingRight: "1em",
+            textAlign: "right",
+            userSelect: "none",
+            color: "#4a5568",
+            fontSize: "13px",
           }}
           lineProps={(lineNumber: number) => ({
             style: {
@@ -115,13 +121,13 @@ export const CodeBlock = ({
                 : "transparent",
               display: "block",
               width: "100%",
-              lineHeight: "1.8"
+              lineHeight: "1.8",
             },
           })}
           PreTag="div"
         >
           {String(activeCode)}
-        </SyntaxHighlighter>p
+        </SyntaxHighlighter>
       </div>
     </div>
   );
