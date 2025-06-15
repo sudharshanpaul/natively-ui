@@ -12,7 +12,7 @@ export function DocsSidebar() {
       <div className="p-8 space-y-6 border-x h-full">
         {sidebarItems.map((section) => (
           <div key={section.title} className="space-y-2">
-            <h4 className="font-medium text-gray-200">
+            <h4 className="font-medium text-lg text-white">
               {section.title}
             </h4>
             <ul className="space-y-1">
@@ -20,7 +20,7 @@ export function DocsSidebar() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`block text-sm ${
+                    className={`block text-sm mb-4 ${
                       pathname === item.href
                         ? "font-medium"
                         : "text-gray-400 hover:text-gray-500"

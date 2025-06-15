@@ -24,7 +24,7 @@ export default function ButtonPage() {
           <CodeBlock
             language="bash"
             filename=""
-            code="npx natively-cli add button"
+            code="npx natively-ui add button"
             showLineNumbers={false}
           />
         </div>

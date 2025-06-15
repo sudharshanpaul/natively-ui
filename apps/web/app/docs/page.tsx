@@ -22,9 +22,7 @@ export default function DocsPage() {
         {/* Hero Section */}
         <div className="flex flex-col items-center text-center space-y-4">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Beautiful React Native
-            <br className="hidden sm:inline" />
-            components
+            Natively UI
           </h1>
           <p className="max-w-[700px] text-lg text-neutral-400 sm:text-xl">
             Beautifully designed components that you can copy and paste into
@@ -39,7 +37,7 @@ export default function DocsPage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
-              href="/components"
+              href="/docs/components/button"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 border border-neutral-800 bg-transparent shadow-sm hover:bg-neutral-800 h-10 px-4 py-2"
             >
               Browse Components

@@ -17,14 +17,17 @@ export default function ComboboxPage() {
       {/* Installation */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Installation</h2>
-        <div className="bg-slate-900 rounded-lg p-4">
+        <div className="bg-neutral-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
             <Terminal className="w-4 h-4" />
-            <p className="font-mono text-sm">Install the component:</p>
+            <p className="text-sm font-mono">Install the component:</p>
           </div>
-          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>npx natively-cli add combobox</code>
-          </pre>
+          <CodeBlock
+            language="bash"
+            filename=""
+            code="npx natively-ui add combobox"
+            showLineNumbers={false}
+          />
         </div>
       </section>
 
@@ -35,7 +38,7 @@ export default function ComboboxPage() {
           <CodeBlock
             language="jsx"
             filename="ComboboxDemo.jsx"
-            highlightLines={[11, 12, 13]}
+            highlightLines={[11, 12, 13, 14]}
             code={`import { Combobox } from '@natively-ui/combobox';
 
 const items = [
@@ -63,7 +66,7 @@ export default function MyComponent() {
 
         <div className="border rounded-lg overflow-hidden">
           <table className="w-full border-collapse">
-            <thead className="bg-slate-900">
+            <thead className="bg-neutral-900">
               <tr>
                 <th className="text-left p-3 border-b">Prop</th>
                 <th className="text-left p-3 border-b">Type</th>

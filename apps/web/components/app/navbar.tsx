@@ -10,8 +10,12 @@ export function Navbar() {
       <div className="flex h-16 p-6 items-center justify-between">
         <div className="flex items-center gap-6 md:gap-8 lg:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="inline-block h-6 w-6 rounded-full bg-primary"></span>
-            <span className="text-xl font-bold">natively-ui</span>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">N</span>
+              </div>
+              <span className="text-xl font-bold">Natively UI.</span>
+            </div>
           </Link>
           <nav className="hidden md:flex md:gap-6">
             <Link
@@ -20,12 +24,12 @@ export function Navbar() {
             >
               Documentation
             </Link>
-            {/* <Link
-              href="/docs/components"
+            <Link
+              href="/docs/components/button"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Components
-            </Link> */}
+            </Link>
             {/* <Link
               href="/examples"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

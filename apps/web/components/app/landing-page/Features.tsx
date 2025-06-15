@@ -12,54 +12,54 @@ const features = [
     title: "Native Performance",
     description:
       "Built for React Native with optimized components that deliver native performance across iOS and Android.",
-    icon: "⚡",
+    icon: "",
     badge: "Fast",
   },
   {
     title: "NativeWind Integration",
     description:
       "Seamlessly integrated with NativeWind for utility-first styling that works across all platforms.",
-    icon: "🎨",
+    icon: "",
     badge: "Styled",
   },
   {
     title: "CLI Tools",
     description:
       "Powerful CLI for scaffolding, component generation, and project management. Get started instantly.",
-    icon: "🛠️",
+    icon: "",
     badge: "Tooling",
   },
   {
     title: "TypeScript Support",
     description:
       "Full TypeScript support with comprehensive type definitions for better developer experience.",
-    icon: "🔷",
+    icon: "",
     badge: "Typed",
   },
   {
     title: "Cross Platform",
     description:
       "Write once, run everywhere. Components work seamlessly on iOS, Android, and web.",
-    icon: "📱",
+    icon: "",
     badge: "Universal",
   },
   {
     title: "Developer Experience",
     description:
       "Hot reload, excellent documentation, and intuitive APIs designed for developer productivity.",
-    icon: "💫",
+    icon: "",
     badge: "DX",
   },
 ];
 
 export const Features = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
+    <section className="py-24 pt-0 px-4 sm:px-6 lg:px-8 bg-zinc-900">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <Badge
             variant="outline"
-            className="mb-4 border-gray-700 text-gray-300"
+            className="mb-4 text-gray-300"
           >
             Features
           </Badge>
@@ -69,8 +69,8 @@ export const Features = () => {
               amazing mobile apps
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            natively-ui provides all the tools and components you need to create
+          <p className="text-xl font-geist text-gray-400 max-w-3xl mx-auto">
+            Natively provides all the tools and components you need to create
             beautiful, performant React Native applications with ease.
           </p>
         </div>
@@ -79,11 +79,13 @@ export const Features = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gray-800 bg-gray-800/50 hover:border-blue-600/50 backdrop-blur-sm"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-neutral-800/50  backdrop-blur-sm"
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-3xl">{feature.icon}</div>
+                  <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
+                    {feature.title}
+                  </CardTitle>
                   <Badge
                     variant="secondary"
                     className="text-xs bg-gray-700 text-gray-300"
@@ -91,9 +93,6 @@ export const Features = () => {
                     {feature.badge}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
-                  {feature.title}
-                </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base leading-relaxed text-gray-400">

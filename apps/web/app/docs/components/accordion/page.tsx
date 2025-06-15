@@ -9,21 +9,25 @@ export default function AccordionPage() {
       <div>
         <h1 className="text-3xl font-bold mb-4">Accordion</h1>
         <p className="text-lg text-muted-foreground">
-          A collapsible content component with smooth animations, supporting both single and multiple item expansion.
+          A collapsible content component with smooth animations, supporting
+          both single and multiple item expansion.
         </p>
       </div>
 
       {/* Installation */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold">Installation</h2>
-        <div className="bg-slate-900 rounded-lg p-4">
+        <div className="bg-neutral-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
             <Terminal className="w-4 h-4" />
-            <p className="font-mono text-sm">Install the component:</p>
+            <p className="text-sm font-mono">Install the component:</p>
           </div>
-          <pre className="bg-slate-800 p-4 rounded-md overflow-x-auto">
-            <code>npx natively-cli add accordion</code>
-          </pre>
+          <CodeBlock
+            language="bash"
+            filename=""
+            code="npx natively-ui add accordion"
+            showLineNumbers={false}
+          />
         </div>
       </section>
 
@@ -62,7 +66,7 @@ export default function MyComponent() {
           <h3 className="text-xl font-semibold">Accordion</h3>
           <div className="border rounded-lg overflow-hidden">
             <table className="w-full border-collapse">
-              <thead className="bg-slate-900">
+              <thead className="bg-neutral-900">
                 <tr>
                   <th className="text-left p-3 border-b">Prop</th>
                   <th className="text-left p-3 border-b">Type</th>
@@ -73,10 +77,13 @@ export default function MyComponent() {
               <tbody className="divide-y">
                 <tr>
                   <td className="p-3 font-mono text-sm">type</td>
-                  <td className="p-3 font-mono text-sm">'single' | 'multiple'</td>
+                  <td className="p-3 font-mono text-sm">
+                    'single' | 'multiple'
+                  </td>
                   <td className="p-3 font-mono text-sm">'single'</td>
                   <td className="p-3 text-sm">
-                    Whether a single or multiple items can be opened at the same time.
+                    Whether a single or multiple items can be opened at the same
+                    time.
                   </td>
                 </tr>
                 <tr>
@@ -84,7 +91,8 @@ export default function MyComponent() {
                   <td className="p-3 font-mono text-sm">string | string[]</td>
                   <td className="p-3 font-mono text-sm">-</td>
                   <td className="p-3 text-sm">
-                    The initial value(s) of the accordion when it is first rendered.
+                    The initial value(s) of the accordion when it is first
+                    rendered.
                   </td>
                 </tr>
                 <tr>
@@ -92,12 +100,15 @@ export default function MyComponent() {
                   <td className="p-3 font-mono text-sm">string | string[]</td>
                   <td className="p-3 font-mono text-sm">-</td>
                   <td className="p-3 text-sm">
-                    The controlled value of the accordion. Use when you need to control the state externally.
+                    The controlled value of the accordion. Use when you need to
+                    control the state externally.
                   </td>
                 </tr>
                 <tr>
                   <td className="p-3 font-mono text-sm">onValueChange</td>
-                  <td className="p-3 font-mono text-sm">(value: string | string[]) =&gt; void</td>
+                  <td className="p-3 font-mono text-sm">
+                    (value: string | string[]) =&gt; void
+                  </td>
                   <td className="p-3 font-mono text-sm">-</td>
                   <td className="p-3 text-sm">
                     Event handler called when the value changes.
@@ -121,7 +132,7 @@ export default function MyComponent() {
           <h3 className="text-xl font-semibold">AccordionItem</h3>
           <div className="border rounded-lg overflow-hidden">
             <table className="w-full border-collapse">
-              <thead className="bg-slate-900">
+              <thead className="bg-neutral-900">
                 <tr>
                   <th className="text-left p-3 border-b">Prop</th>
                   <th className="text-left p-3 border-b">Type</th>
@@ -164,7 +175,7 @@ export default function MyComponent() {
           <h3 className="text-xl font-semibold">AccordionTrigger</h3>
           <div className="border rounded-lg overflow-hidden">
             <table className="w-full border-collapse">
-              <thead className="bg-slate-900">
+              <thead className="bg-neutral-900">
                 <tr>
                   <th className="text-left p-3 border-b">Prop</th>
                   <th className="text-left p-3 border-b">Type</th>
@@ -186,7 +197,8 @@ export default function MyComponent() {
                   <td className="p-3 font-mono text-sm">React.ReactNode</td>
                   <td className="p-3 font-mono text-sm">-</td>
                   <td className="p-3 text-sm">
-                    The content to display in the trigger. Can be text or custom components.
+                    The content to display in the trigger. Can be text or custom
+                    components.
                   </td>
                 </tr>
               </tbody>
@@ -199,7 +211,7 @@ export default function MyComponent() {
           <h3 className="text-xl font-semibold">AccordionContent</h3>
           <div className="border rounded-lg overflow-hidden">
             <table className="w-full border-collapse">
-              <thead className="bg-slate-900">
+              <thead className="bg-neutral-900">
                 <tr>
                   <th className="text-left p-3 border-b">Prop</th>
                   <th className="text-left p-3 border-b">Type</th>
