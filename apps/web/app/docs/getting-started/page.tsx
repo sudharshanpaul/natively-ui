@@ -9,7 +9,6 @@ import { useState } from "react";
 import Link from "next/link";
 
 const Page = () => {
-
   const Code = ({
     children,
     language = "bash",
@@ -84,7 +83,7 @@ const Page = () => {
             Getting Started
           </h1>
           <p className="text-xl text-muted-foreground">
-            Set up Nativewind and natively in your React Native project
+            Set up Nativewind and Natively in your React Native project
           </p>
         </div>
 
@@ -263,33 +262,28 @@ export default App() {
           <Step number={1} title="Initialize natively in Your Project">
             <Code>npx natively-ui init</Code>
             <p className="text-sm text-muted-foreground mt-3">
-              That's it! This will create the necessary configuration files and folder
-              structure for natively components.
+              That's it! This will create the necessary configuration files and
+              folder structure for natively components.
             </p>
           </Step>
         </section>
 
         {/* Using natively Section */}
         <section className="mb-12">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Settings className="h-5 w-5" />
+          <Step number={2} title="Using Natively">
+            <div>
+              <Card className="p-6">
+                <h3 className="font-semibold mb-3">Install Components</h3>
+                <Code>npx natively-ui add [component-name]</Code>
+                <p className="text-sm text-muted-foreground mt-2">Example:</p>
+                <div className="space-y-2 mt-2">
+                  <Code>npx natively-ui add button</Code>
+                  <Code>npx natively-ui add card</Code>
+                  <Code>npx natively-ui add avatar</Code>
+                </div>
+              </Card>
             </div>
-            <h2 className="text-3xl font-bold">Using Natively</h2>
-          </div>
-
-          <div>
-            <Card className="p-6">
-              <h3 className="font-semibold mb-3">Install Components</h3>
-              <Code>npx natively-ui add [component-name]</Code>
-              <p className="text-sm text-muted-foreground mt-2">Example:</p>
-              <div className="space-y-2 mt-2">
-                <Code>npx natively-ui add button</Code>
-                <Code>npx natively-ui add card</Code>
-                <Code>npx natively-ui add avatar</Code>
-              </div>
-            </Card>
-          </div>
+          </Step>
         </section>
 
         {/* Next Steps */}
