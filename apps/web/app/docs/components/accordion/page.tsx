@@ -1,9 +1,6 @@
 import React from "react";
 import { CodeBlock } from "@/components/app/code-block";
-import { Terminal } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
-const TerminalIcon = Terminal as LucideIcon;
 
 export default function AccordionPage() {
   return (
@@ -22,7 +19,7 @@ export default function AccordionPage() {
         <h2 className="text-2xl font-bold">Installation</h2>
         <div className="bg-neutral-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
-            <TerminalIcon className="w-4 h-4" />
+
             <p className="text-sm font-mono">Install the component:</p>
           </div>
           <CodeBlock
