@@ -20,7 +20,7 @@ export const Hero = () => {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4"
       >
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative flex items-center justify-center overflow-hidden">
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
             <Badge
               variant="secondary"
@@ -37,7 +37,7 @@ export const Hero = () => {
               Apps
             </h1>
 
-            <p className="text-xl font-playfair italic font-thin sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl font-playfair italic font-thin sm:text-2xl text-white mb-8 max-w-3xl mx-auto leading-relaxed">
               A comprehensive UI component library for React Native and Expo,
               built with NativeWind. Get started in seconds with our CLI and
               build stunning cross-platform apps.
@@ -46,8 +46,8 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row font-geist gap-4 justify-center items-center mb-12">
               <Link href={"/docs/getting-started"}>
                 <Button
-                  size="lg"
-                  className="font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200"
+                  size={"lg"}
+                  className="font-geist text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200"
                 >
                   Get Started <ArrowRight className="h-5 w-5" />
                 </Button>
@@ -58,8 +58,8 @@ export const Hero = () => {
                 href={"https://github.com/Ayushhgupta39/natively-ui"}
               >
                 <Button
-                  size="lg"
-                  className="font-medium text-white bg-black hover:bg-zinc-900 hover:scale-105 transition-all duration-200"
+                  size={"lg"}
+                  className="font-geist text-white bg-black hover:bg-zinc-900 hover:scale-105 transition-all duration-200"
                 >
                   <Github className="h-5 w-5" /> View on GitHub
                 </Button>

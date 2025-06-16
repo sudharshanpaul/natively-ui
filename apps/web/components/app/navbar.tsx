@@ -2,9 +2,17 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Github, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
+  const pathname = usePathname();
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-transparent backdrop-blur-2xl">
       <div className="flex h-16 p-6 items-center justify-between">
@@ -17,6 +25,7 @@ export function Navbar() {
               <span className="text-xl font-bold">Natively UI.</span>
             </div>
           </Link>
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex md:gap-6">
             <Link
               href="/docs"
@@ -30,21 +39,11 @@ export function Navbar() {
             >
               Components
             </Link>
-            {/* <Link
-              href="/examples"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Examples
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Blog
-            </Link> */}
           </nav>
         </div>
+
         <div className="flex items-center gap-2">
+          {/* GitHub Button */}
           <Link
             href="https://github.com/Ayushhgupta39/natively-ui"
             target="_blank"
@@ -55,6 +54,30 @@ export function Navbar() {
               <span className="sr-only">GitHub</span>
             </Button>
           </Link>
+
+          {/* Mobile Menu */}
+          {pathname !== "/docs" && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link href="/docs" className="w-full">
+                    Documentation
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/docs/components/button" className="w-full">
+                    Components
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
       </div>
     </nav>
