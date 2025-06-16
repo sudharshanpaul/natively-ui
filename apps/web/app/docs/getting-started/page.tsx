@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Terminal, Settings, ArrowRight } from "lucide-react";
+import { Check, Terminal, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CodeBlock } from "@/components/app/code-block";

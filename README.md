@@ -1,84 +1,172 @@
-# Turborepo starter
+# Natively UI
 
-This Turborepo starter is maintained by the Turborepo core team.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+[![Expo](https://img.shields.io/badge/Expo-1B1F23?logo=expo&logoColor=white)](https://expo.dev/)
 
-## Using this example
+A **shadcn/ui-inspired** component library for React Native and Expo, built with **TailwindCSS** (via NativeWind). Create beautiful, accessible, and customizable mobile interfaces with the same developer experience you love from React!
 
-Run the following command:
+## ✨ Features
 
-```sh
-npx create-turbo@latest
-```
+- 🚀 **Expo-first** - Zero configuration setup with Expo
+- 🎨 **Fully customizable** - Built with TailwindCSS/NativeWind for seamless theming
+- 📱 **Cross-platform** - Works on iOS, Android, and web
+- 🔧 **TypeScript ready** - Full type safety out of the box
+- ♿ **Accessible** - Built with accessibility best practices
+- 🎯 **Tree-shakeable** - Import only what you need
 
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## 🏗️ Monorepo Structure
 
 ```
-cd my-turborepo
-pnpm build
+natively-ui/
+├── apps/
+│   ├── web/          # Next.js documentation website
+│   └── mobile/       # Expo development app
+├── packages/
+│   ├── eslint-config/# Shared ESLint configuration
+│   └── typescript-config/ # Shared TypeScript configuration
 ```
 
-### Develop
+## 🚀 Quick Start
 
-To develop all apps and packages, run the following command:
+### Prerequisites
 
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (recommended) or npm/yarn
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ayushhgupta39/natively-ui.git
+   cd natively-ui
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+### Development
+
+#### Start the component development environment
+
+```bash
+# Start the Expo mobile app (for component development)
+pnpm dev --filter mobile
+
+# Start the documentation website (for previews and docs)
+pnpm dev --filter web
 ```
-cd my-turborepo
-pnpm dev
+
+#### Preview on device
+
+Use the Expo Go app or development build:
+- Scan QR code with Expo Go app
+- Press 'i' for iOS simulator
+- Press 'a' for Android emulator
+
+## Usage in Your Project
+
+### Installation
+
+```bash
+# Install required peer dependencies
+npm install react-native-svg nativewind tailwindcss
 ```
 
-### Remote Caching
+### Setup
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+1. Configure NativeWind in your project (follow NativeWind setup guide)
+2. Import and use components:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import { Button, Card, Text } from '@repo/ui';
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
+export default function App() {
+  return (
+    <View className="flex-1 justify-center items-center p-4">
+      <Card className="w-full max-w-sm p-6">
+        <Text className="text-2xl font-bold mb-4">Welcome!</Text>
+        <Button onPress={() => alert('Hello!')}>
+          Get Started
+        </Button>
+      </Card>
+    </View>
+  );
+}
 ```
-cd my-turborepo
-npx turbo login
+
+## Development Commands
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development servers
+pnpm dev              # Start all apps
+pnpm dev --filter mobile  # Start mobile app only
+pnpm dev --filter web    # Start website only
+
+# Build packages
+pnpm build            # Build all packages
+pnpm build --filter @repo/ui  # Build UI library only
+
+# Code quality
+pnpm lint             # Run ESLint
+pnpm type-check       # Run TypeScript checks
+pnpm test            # Run tests
+
+# Clean builds
+pnpm clean           # Clean all build artifacts
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Contributing
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+We welcome contributions! Here's how to get started:
 
-```
-npx turbo link
-```
+1. Fork the repository
+2. Create a feature branch
+   ```bash
+   git checkout -b feature/amazing-component
+   ```
+3. Make your changes
+   - Update documentation in `apps/web`
+   - Add components and examples to `apps/mobile/`
+4. Test your changes
+   ```bash
+   pnpm lint && pnpm type-check && pnpm test
+   ```
+5. Commit and push
+   ```bash
+   git commit -m "feat: add amazing component"
+   git push origin feature/amazing-component
+   ```
+6. Open a Pull Request
 
-## Useful Links
+### Development Guidelines
 
-Learn more about the power of Turborepo:
+- Follow the existing code style and conventions
+- Write TypeScript with proper type definitions
+- Update documentation for new features
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## Issues & Support
+
+- [Bug Reports](https://github.com/ayushhgupta39/natively-ui/issues)
+- [Feature Requests](https://github.com/ayushhgupta39/natively-ui/pulls)
+- [Discussions](https://github.com/ayushhgupta39/natively-ui/issues) - Ask questions and share ideas
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by [shadcn/ui](https://ui.shadcn.com/)
+- Built with [NativeWind](https://www.nativewind.dev/)
+- Powered by [Expo](https://expo.dev/)
