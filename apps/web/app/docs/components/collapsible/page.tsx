@@ -38,7 +38,7 @@ export default function CollapsiblePage() {
           <CodeBlock
             language="jsx"
             filename="CollapsibleDemo.jsx"
-            code={`import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@natively-ui/collapsible';
+            code={`import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible';
 
 export default function MyComponent() {
   return (

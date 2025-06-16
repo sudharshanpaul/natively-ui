@@ -39,7 +39,7 @@ export default function DrawerPage() {
             language="jsx"
             filename="DrawerDemo.jsx"
             highlightLines={[8, 9, 10]}
-            code={`import { Drawer } from '@natively-ui/drawer';
+            code={`import { Drawer } from '@/components/ui/drawer';
 
 export default function MyComponent() {
   const [isOpen, setIsOpen] = React.useState(false);

@@ -7,8 +7,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": ["./*"],
+      "react": ["./node_modules/@types/react"]
+    },
   },
   "include": [
     "**/*.ts",
@@ -19,5 +20,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

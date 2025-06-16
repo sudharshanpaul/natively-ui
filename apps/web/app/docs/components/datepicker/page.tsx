@@ -38,7 +38,7 @@ export default function DatePickerPage() {
           <CodeBlock
             language="jsx"
             filename="DatePickerDemo.jsx"
-            code={`import { DatePicker } from '@natively-ui/datepicker';
+            code={`import { DatePicker } from '@/components/ui/datepicker';
 
 export default function MyComponent() {
   const [selectedDate, setSelectedDate] = useState();

@@ -38,7 +38,7 @@ export default function DialogPage() {
           <CodeBlock
             language="jsx"
             filename="DialogDemo.jsx"
-            code={`import { Dialog, AlertDialog } from '@natively-ui/dialog';
+            code={`import { Dialog, AlertDialog } from '@/components/ui/dialog';
 
 export default function MyComponent() {
   const [isOpen, setIsOpen] = useState(false);

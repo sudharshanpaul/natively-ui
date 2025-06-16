@@ -48,7 +48,7 @@ export default function AlertDialogPage() {
   AlertDialogFooter,
   AlertDialogCancel,
   AlertDialogAction
-} from '@natively-ui/alert-dialog';
+} from '@/components/ui/alert-dialog';
 
 export default function MyComponent() {
   return (

@@ -39,7 +39,7 @@ export default function ComboboxPage() {
             language="jsx"
             filename="ComboboxDemo.jsx"
             highlightLines={[11, 12, 13, 14]}
-            code={`import { Combobox } from '@natively-ui/combobox';
+            code={`import { Combobox } from '@/components/ui/combobox';
 
 const items = [
   { value: "apple", label: "Apple" },

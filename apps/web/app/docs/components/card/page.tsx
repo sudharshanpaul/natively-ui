@@ -46,7 +46,7 @@ export default function CardPage() {
   CardContent, 
   CardFooter, 
   PressableCard 
-} from '@natively-ui/card';
+} from '@/components/ui/card';
 
 export default function MyComponent() {
   return (

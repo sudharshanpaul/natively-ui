@@ -39,7 +39,7 @@ export default function AvatarPage() {
             language="jsx"
             filename="AvatarDemo.jsx"
             highlightLines={[6]}
-            code={`import Avatar from '@natively-ui/avatar';
+            code={`import Avatar from '@/components/ui/avatar';
 
 export default function MyComponent() {
   return (

@@ -38,7 +38,7 @@ export default function ButtonPage() {
             language="jsx"
             filename="ButtonDemo.jsx"
             highlightLines={[9]}
-            code={`import { Button } from '@natively-ui/button';
+            code={`import { Button } from '@/components/ui/button';
 
 export default function MyComponent() {
   return (

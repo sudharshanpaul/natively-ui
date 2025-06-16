@@ -1,6 +1,6 @@
 import React from "react";
 import { CodeBlock } from "@/components/app/code-block";
-import { SquareTerminal } from "lucide-react";
+import { Terminal } from 'lucide-react';
 
 
 export default function AccordionPage() {
@@ -20,7 +20,7 @@ export default function AccordionPage() {
         <h2 className="text-2xl font-bold">Installation</h2>
         <div className="bg-neutral-900 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
-              <SquareTerminal className="w-4 h-4" />
+              <Terminal className="w-4 h-4" />
             <p className="text-sm font-mono">Install the component:</p>
           </div>
           <CodeBlock
@@ -40,7 +40,7 @@ export default function AccordionPage() {
             language="jsx"
             filename="AccordionDemo.jsx"
             highlightLines={[6, 7, 8, 9]}
-            code={`import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@natively-ui/accordion';
+            code={`import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 export default function MyComponent() {
   return (

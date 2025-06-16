@@ -39,7 +39,7 @@ export default function BadgePage() {
             language="jsx"
             filename="BadgeDemo.jsx"
             highlightLines={[6]}
-            code={`import { Badge } from '@natively-ui/badge';
+            code={`import { Badge } from '@/components/ui/badge';
 
 export default function MyComponent() {
   return (

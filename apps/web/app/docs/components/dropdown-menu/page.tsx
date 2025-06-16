@@ -39,7 +39,7 @@ export default function DropdownMenuPage() {
             language="jsx"
             filename="DropdownMenuDemo.jsx"
             highlightLines={[3, 4, 8, 12]}
-            code={`import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@natively-ui/dropdown-menu';
+            code={`import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 export default function MyComponent() {
   return (

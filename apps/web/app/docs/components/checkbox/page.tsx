@@ -39,7 +39,7 @@ export default function CheckboxPage() {
             language="jsx"
             filename="CheckboxDemo.jsx"
             highlightLines={[9]}
-            code={`import { Checkbox } from '@natively-ui/checkbox';
+            code={`import { Checkbox } from '@/components/ui/checkbox';
 
 export default function MyComponent() {
   return (
