@@ -114,57 +114,64 @@ export default function DocsPage() {
                   description:
                     "A flexible date picker with customizable calendar views and date range selection.",
                   package: "@/components/ui/datepicker",
+                  path: "/docs/components/datepicker",
                 },
                 {
                   name: "Drawer",
                   description:
                     "A sliding drawer component with gesture support and customizable positions.",
                   package: "@/components/ui/drawer",
+                  path: "/docs/components/drawer",
                 },
                 {
                   name: "Dialog",
                   description:
                     "Modal dialogs with animations, backdrop handling, and accessibility features.",
                   package: "@/components/ui/dialog",
+                  path: "/docs/components/dialog",
                 },
                 {
                   name: "Combobox",
                   description:
                     "An autocomplete input with filtering, keyboard navigation, and custom rendering.",
                   package: "@/components/ui/combobox",
+                  path: "/docs/components/combobox",
                 },
                 {
                   name: "Accordion",
                   description:
                     "Expandable content sections with smooth animations and keyboard support.",
                   package: "@/components/ui/accordion",
+                  path: "/docs/components/accordion",
                 },
                 {
                   name: "Alert Dialog",
                   description:
                     "Accessible alert dialogs for important user confirmations and notifications.",
                   package: "@/components/ui/alert-dialog",
+                  path: "/docs/components/alert-dialog",
                 },
               ].map((component, index) => (
-                <div
-                  key={index}
-                  className="group relative overflow-hidden cursor-pointer rounded-lg border border-neutral-800 bg-neutral-900 p-6 hover:bg-neutral-800/50 transition-all hover:border-neutral-700"
-                >
-                  <div className="flex flex-col space-y-2">
-                    <h3 className="font-semibold text-neutral-50 group-hover:text-white transition-colors">
-                      {component.name}
-                    </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      {component.description}
-                    </p>
-                    <div className="flex items-center justify-between pt-2">
-                      <code className="relative rounded bg-neutral-800 px-2 py-1 text-xs text-neutral-300">
-                        {component.package}
-                      </code>
-                      <ArrowRight className="h-4 w-4 text-neutral-500 group-hover:text-neutral-300 transition-colors" />
+                <Link key={index} href={component.path}>
+                  <div
+                    className="group relative overflow-hidden cursor-pointer rounded-lg border border-neutral-800 bg-neutral-900 p-6 hover:bg-neutral-800/50 transition-all hover:border-neutral-700"
+                  >
+                    <div className="flex flex-col space-y-2">
+                      <h3 className="font-semibold text-neutral-50 group-hover:text-white transition-colors">
+                        {component.name}
+                      </h3>
+                      <p className="text-sm text-neutral-400 leading-relaxed">
+                        {component.description}
+                      </p>
+                      <div className="flex items-center justify-between pt-2">
+                        <code className="relative rounded bg-neutral-800 px-2 py-1 text-xs text-neutral-300">
+                          {component.package}
+                        </code>
+                        <ArrowRight className="h-4 w-4 text-neutral-500 group-hover:text-neutral-300 transition-colors" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>

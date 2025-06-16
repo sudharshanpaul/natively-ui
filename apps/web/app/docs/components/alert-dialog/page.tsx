@@ -38,7 +38,6 @@ export default function AlertDialogPage() {
           <CodeBlock
             language="jsx"
             filename="AlertDialogDemo.jsx"
-            highlightLines={[1]}
             code={`import { 
   AlertDialog,
   AlertDialogTrigger,
