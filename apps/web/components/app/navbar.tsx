@@ -45,6 +45,13 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           {/* GitHub Button */}
           <Link
+            href="https://github.com/Ayushhgupta39/natively-ui/issues"
+            target="_blank"
+            className="text-sm hidden sm:flex font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Support
+          </Link>
+          <Link
             href="https://github.com/Ayushhgupta39/natively-ui"
             target="_blank"
             rel="noreferrer"
@@ -56,7 +63,7 @@ export function Navbar() {
           </Link>
 
           {/* Mobile Menu */}
-          {pathname !== "/docs" && (
+          {pathname === "/" && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="md:hidden">
                 <Button variant="ghost" size="icon">
@@ -73,6 +80,11 @@ export function Navbar() {
                 <DropdownMenuItem asChild>
                   <Link href="/docs/components/button" className="w-full">
                     Components
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="https://github.com/Ayushhgupta39/natively-ui" className="w-full">
+                    Help and Support
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
